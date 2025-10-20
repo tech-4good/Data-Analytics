@@ -1,0 +1,26 @@
+======================================================================
+TECH 4 GOOD - RESUMO DA CONSOLIDACAO
+======================================================================
+
+Data: 19/10/2025 23:35:30
+
+BENEFICIOS SOCIAIS
+----------------------------------------------------------------------
+Total registros: 40
+Total beneficiados: 106698
+
+BOLSA_FAMILIA: 8 registros, 28343 beneficiados
+BPC: 24 registros, 17590 beneficiados
+CADUNICO: 8 registros, 60765 beneficiados
+
+MAPA DA DESIGUALDADE
+----------------------------------------------------------------------
+Distritos: 8
+Indicadores: 24
+
+OBSERVASAMPA
+----------------------------------------------------------------------
+Total registros: 26724
+Indicadores unicos: 221
+
+======================================================================

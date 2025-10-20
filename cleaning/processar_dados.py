@@ -2,7 +2,17 @@ import pandas as pd
 import re
 import unicodedata
 
-def clean_excel_mapa_desigualdade(input_path, output_xlsx, output_csv):
+def clean_excel_mapa_desigualdade(input_path, output_csv):
+    import os
+    if not os.path.isabs(input_path):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(script_dir)
+        input_path = os.path.join(base_dir, 'Arquivos_Brutos', input_path)
+
+    if not os.path.exists(input_path):
+        print(f"Arquivo de entrada não encontrado: {input_path}")
+        return
+
     df = pd.read_excel(input_path, sheet_name='2. Dados_distritos_2024')  # lê a planilha específica
 
     def clean_cell(cell):
@@ -45,11 +55,9 @@ def clean_excel_mapa_desigualdade(input_path, output_xlsx, output_csv):
         if df[coluna].dtype == 'object':
             df[coluna] = df[coluna].apply(clean_cell)
 
-    # Salva os arquivos
-    df.to_excel(output_xlsx, index=False, sheet_name='Dados_Padronizados')
+    # Salva o CSV tratado
     df.to_csv(output_csv, index=False, encoding='utf-8-sig')
 
 # processar o arquivo principal 
 clean_excel_mapa_desigualdade('mapa_da_desigualdade_2024_dados.xlsx',
-                             'mapa_da_desigualdade_2024_padronizado.xlsx',
                              'mapa_da_desigualdade_2024_padronizado.csv')
