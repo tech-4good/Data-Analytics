@@ -49,7 +49,7 @@ resource "aws_route_table" "route_table_publica" {
     gateway_id = aws_internet_gateway.igw_cco.id
   }
   tags = {
-    Name = "subrede-publica-route-table"
+    Name = "subrede-publica-route-table-anatytics"
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table_association" "subrede-publica" {
 }
 
 resource "aws_security_group" "sg_publica" {
-  name = "sg_publica"
+  name = "sg_publica_analytics"
   description = "Permite acesso SSH de qualquer IP"
   vpc_id = aws_vpc.vpc_cco.id
 
@@ -75,6 +75,130 @@ resource "aws_security_group" "sg_publica" {
     to_port = 0
     protocol = "-1"
     cidr_blocks = [var.cidr_qualquer_ip]
+  }
+
+}
+
+# instancia 
+
+resource "aws_instance" "ec2_publica" {
+  ami = "ami-00ca32bbc84273381"
+  key_name = "vockey"
+  instance_type = "t2.micro"
+  subnet_id = aws_subnet.subrede_publica.id
+  vpc_security_group_ids = [aws_security_group.sg_publica.id]
+  associate_public_ip_address = true
+  tags = {
+    Name = "ec2-analytics"
+  }
+}
+
+#buckets 
+
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
+resource "aws_s3_bucket" "raw" {
+  bucket = "analise-dados-raw-${random_id.suffix.hex}"
+  tags = { Name = "Raw" }
+}
+resource "aws_s3_bucket" "trusted" {
+  bucket = "analise-dados-trusted-${random_id.suffix.hex}"
+  tags = { Name = "Trusted" }
+}
+resource "aws_s3_bucket" "curated" {
+  bucket = "analise-dados-curated-${random_id.suffix.hex}"
+  tags = { Name = "Curated" }
+}
+
+resource "aws_s3_bucket_public_access_block" "bloco_acesso_publico_s3" {
+  bucket = aws_s3_bucket.curated.id
+
+  block_public_acls       = false
+  block_public_policy     = false 
+  ignore_public_acls      = false 
+  restrict_public_buckets = false  
+}
+
+resource "aws_s3_bucket_policy" "politica_acesso_publico_bucket" {
+  bucket = aws_s3_bucket.curated.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = ["s3:GetObject"]
+        Principal = "*"
+        Effect = "Allow"
+        Resource = "${aws_s3_bucket.curated.arn}/*"
+      }
+    ]
+  })
+
+  depends_on = [aws_s3_bucket_public_access_block.bloco_acesso_publico_s3]
+}
+
+# lambda
+
+data "aws_iam_role" "lab_role" {
+  name = "LabRole"
+}
+
+#ram -> trusted
+
+data "archive_file" "lambda_RT_zip" {
+  type = "zip"
+  source_file = "lambda_raw_trusted.py"
+  output_path = "lambda_raw_trusted.zip"
+}
+
+resource "aws_lambda_function" "funcao_lambda1_RT" {
+  function_name    = "funcao1-terraform"
+  handler          = "funcao_lambda1.lambda_handler"
+  runtime          = "python3.12"
+  timeout          = 300
+  memory_size      = 512 
+  role             = data.aws_iam_role.lab_role.arn
+  filename         = data.archive_file.lambda_RT_zip.output_path
+  source_code_hash = data.archive_file.lambda_RT_zip.output_base64sha256 
+  layers           = ["arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python312:19"]
+
+
+  environment {
+    variables = {
+      BUCKET_RAW = aws_s3_bucket.raw.id
+      BUCKET_TRUSTED = aws_s3_bucket.trusted.id
+    }
+  }
+
+}
+
+#trusted -> refined 
+
+data "archive_file" "lambda_TR_zip" {
+  type = "zip"
+  source_file = "lambda_trusted_client.py"
+  output_path = "lambda_trusted_client.zip"
+}
+
+resource "aws_lambda_function" "funcao_lambda2_TR" {
+  function_name    = "funcao2-terraform"
+  handler          = "funcao_lambda2.lambda_handler"
+  runtime          = "python3.12"
+  timeout          = 300
+  memory_size      = 512 
+  role             = data.aws_iam_role.lab_role.arn
+  filename         = data.archive_file.lambda_TR_zip.output_path
+  source_code_hash = data.archive_file.lambda_TR_zip.output_base64sha256 
+  layers           = ["arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python312:19"]
+
+
+  environment {
+    variables = {
+      BUCKET_TRUSTED = aws_s3_bucket.trusted.id
+      BUCKET_CURATED = aws_s3_bucket.curated.id
+    }
   }
 
 }
