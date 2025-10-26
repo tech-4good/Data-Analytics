@@ -1,9 +1,10 @@
 import pandas as pd
 import re
 import unicodedata
+import os
 
 def clean_excel_mapa_desigualdade(input_path, output_csv):
-    import os
+    
     if not os.path.isabs(input_path):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         base_dir = os.path.dirname(script_dir)
@@ -36,8 +37,8 @@ def clean_excel_mapa_desigualdade(input_path, output_csv):
             valores_nao_nulos = df[coluna].dropna()
             if len(valores_nao_nulos) > 0:
                 tem_texto = any(isinstance(val, str) or 
-                              any(c.isalpha() for c in str(val)) 
-                              for val in valores_nao_nulos.head(10))
+                            any(c.isalpha() for c in str(val)) 
+                            for val in valores_nao_nulos.head(10))
                 if tem_texto or 'distrito' in coluna.lower():
                     df[coluna] = df[coluna].astype(str)
                     df[coluna] = df[coluna].replace(['nan', 'None', 'NaN'], 'NAO INFORMADO')
@@ -60,4 +61,4 @@ def clean_excel_mapa_desigualdade(input_path, output_csv):
 
 # processar o arquivo principal 
 clean_excel_mapa_desigualdade('mapa_da_desigualdade_2024_dados.xlsx',
-                             'mapa_da_desigualdade_2024_padronizado.csv')
+                            '../Arquivos_Tratados/mapa_da_desigualdade_2024_padronizado.csv')

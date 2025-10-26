@@ -1,5 +1,6 @@
 import pandas as pd
 import optparse
+import os
 
 ## Confg dos distritos
 DISTRITOS_IGREJA = ['BELA VISTA', 'BOM RETIRO', 'CAMBUCI', 'CONSOLACAO', 'LIBERDADE', 'REPUBLICA', 'SANTA CECILIA', 'SE']
@@ -34,7 +35,7 @@ def identificar_coluna_distrito(df):
     colunas_possiveis = ['Distrito', 'Regiao', 'Região']
     for col in colunas_possiveis:
         if col in df.columns:
-            return col
+            return col 
     for col in df.columns:
         if 'DISTRITO' in col.upper() or 'REGIAO' in col.upper():
             return col
@@ -66,7 +67,7 @@ def filtrar_distritos(df, coluna_distrito=None):
     
     return df_filtrado
 
-## Beneficios
+# Beneficios
 def consolidar_bpc():
     print("\nCarregando BPC...")
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -112,7 +113,7 @@ def consolidar_bolsa_familia():
     df['Mes_Numero'] = df['Mes'].map(MESES_MAP)
     
     colunas = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Programa', 
-               'Categoria', 'Quantidade_Beneficiados', 'Mes', 'Mes_Numero', 'Ano']
+                'Categoria', 'Quantidade_Beneficiados', 'Mes', 'Mes_Numero', 'Ano']
     
     print(f"Bolsa Familia: {len(df)} registros, {df['Quantidade_Beneficiados'].sum()} familias")
     return df[colunas]
@@ -137,7 +138,7 @@ def consolidar_cadunico():
     df['Mes_Numero'] = df['Mes'].map(MESES_MAP)
     
     colunas = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Programa', 
-               'Categoria', 'Quantidade_Beneficiados', 'Mes', 'Mes_Numero', 'Ano']
+                'Categoria', 'Quantidade_Beneficiados', 'Mes', 'Mes_Numero', 'Ano']
     
     print(f"CadUnico: {len(df)} registros, {df['Quantidade_Beneficiados'].sum()} familias")
     return df[colunas]
@@ -164,7 +165,7 @@ def consolidar_beneficios():
     
     return df_final
 
-## Indicadores
+# Indicadores
 def consolidar_mapa_desigualdade():
     print("Consolidando o mapa da desigualdade")
     print("="*70)
@@ -226,7 +227,7 @@ def consolidar_observasampa():
     
     return df_final
 
-## Salvando os dados
+# Salvando os dados
 def salvar_consolidados(df_beneficios, df_mapa, df_observa):
     print("Salvando os dads")
     
@@ -261,7 +262,7 @@ def main():
         df_mapa = consolidar_mapa_desigualdade()
         df_observa = consolidar_observasampa()
         
-        output_dir = salvar_consolidados(df_beneficios, df_mapa, df_observa)
+        salvar_consolidados(df_beneficios, df_mapa, df_observa)
         
         print("Finalizado")
         
