@@ -1,5 +1,4 @@
 import boto3
-import os
 from pathlib import Path
 
 def get_bucket_name():
@@ -9,7 +8,7 @@ def get_bucket_name():
         response = s3.list_buckets()
         # Procura o bucket que começa com 'analise-dados-raw-'
         for bucket in response['Buckets']:
-            if bucket['Name'].startswith('analise-dados-raw-'):
+            if bucket['Name'].startswith('t4g-ra'):
                 return bucket['Name']
         raise Exception("Bucket raw não encontrado")
     except Exception as e:
@@ -39,10 +38,12 @@ def upload_files_to_s3():
             if file_path.is_file():
                 print(f"Enviando arquivo: {file_path.name}")
                 try:
+                    # Define o caminho no S3 incluindo o diretório Arquivos_Brutos
+                    s3_path = f"Arquivos_Brutos/{file_path.name}"
                     s3.upload_file(
                         str(file_path),
                         bucket_name,
-                        file_path.name
+                        s3_path
                     )
                     print(f"Arquivo enviado com sucesso: {file_path.name}")
                 except Exception as e:

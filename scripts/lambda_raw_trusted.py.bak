@@ -29,6 +29,75 @@ def clean_df(df: pd.DataFrame) -> pd.DataFrame:
     # Aplica a função de limpeza a todo o DataFrame
     return df.map(lambda c: clean_cell(c) if not pd.isnull(c) else c)
 
+def _clean_text_cell(cell: object) -> object:
+    if pd.isnull(cell):
+        return cell
+    if isinstance(cell, str):
+        # Converte para maiúsculas
+        s = cell.upper()
+        
+        # Remove as acentuações
+        s = unicodedata.normalize('NFD', s)
+        s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+        
+        # Remove os caracteres especiais
+        s = re.sub(r"[^A-Z0-9 \.,%()\-]", '', s)
+        
+        # Normaliza os espaços
+        s = re.sub(r'\s+', ' ', s).strip()
+        return s
+    return cell
+
+def identificar_tipo(sheet_name: str) -> str:
+    # Normaliza o nome da planilha removendo acentos
+    s = unicodedata.normalize('NFD', str(sheet_name)).upper()
+    s_plain = re.sub(r'\s+', '', ''.join(c for c in s if unicodedata.category(c) != 'Mn'))
+    
+    # Identifica o tipo de benefício
+    if 'IDOSA' in s or 'IDOSO' in s:
+        return 'IDOSA'
+    if 'PCD' in s_plain or ('PESSOA' in s_plain and ('DEFICI' in s_plain or 'COMDEFICIENCIA' in s_plain)):
+        return 'PCD'
+    if 'BPC' in s_plain or 'TOTAL' in s_plain:
+        return 'BPC'
+    return s.replace(' ', '_')
+
+def processar_dataframe(df: pd.DataFrame, tipo: str = 'BPC'):
+    # Seleciona apenas as 4 primeiras colunas
+    df = df.iloc[:, :4].copy()
+    
+    # Define os nomes das colunas de acordo com o tipo
+    if tipo in ('CADUNICO', 'BOLSA_FAMILIA'):
+        df.columns = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Total_Familias']
+        col_total = 'Total_Familias'
+    else:
+        df.columns = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Total']
+        col_total = 'Total'
+
+    # Propaga valores de Macrorregiao e Subprefeitura para baixo
+    df[['Macrorregiao', 'Subprefeitura']] = df[['Macrorregiao', 'Subprefeitura']].ffill()
+    
+    # Remove linhas completamente vazias
+    df = df.dropna(how='all')
+
+    # Limpa e normaliza os dados
+    for c in df.columns:
+        if df[c].dtype == 'object':
+            df[c] = df[c].fillna('NAO INFORMADO').apply(lambda v: _clean_text_cell(v) if not pd.isnull(v) else v)
+        else:
+            df[c] = df[c].fillna(0)
+
+    # Remove linhas inválidas
+    df = df[~((df['Macrorregiao'] == 'NAO INFORMADO') & (df['Subprefeitura'] == 'NAO INFORMADO') & (df['Distrito'] == 'NAO INFORMADO'))]
+    df = df[~df['Distrito'].str.contains('TOTAL', na=False)]
+    df = df[df['Distrito'] != 'NAO INFORMADO']
+
+    # Converte coluna de total para inteiro
+    df[col_total] = pd.to_numeric(df[col_total], errors='coerce').fillna(0).astype(int)
+    
+    # Retorna apenas registros com total maior que zero
+    return df[df[col_total] > 0], col_total
+
 def get_bucket_names():
     """Obtém os nomes dos buckets raw e trusted"""
     try:
@@ -50,6 +119,75 @@ def get_bucket_names():
     except Exception as e:
         print(f"Erro ao obter nomes dos buckets: {str(e)}")
         raise
+
+def _clean_text_cell(cell: object) -> object:
+    if pd.isnull(cell):
+        return cell
+    if isinstance(cell, str):
+        # Converte para maiúsculas
+        s = cell.upper()
+        
+        # Remove as acentuações
+        s = unicodedata.normalize('NFD', s)
+        s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+        
+        # Remove os caracteres especiais
+        s = re.sub(r"[^A-Z0-9 \.,%()\-]", '', s)
+        
+        # Normaliza os espaços
+        s = re.sub(r'\s+', ' ', s).strip()
+        return s
+    return cell
+
+def identificar_tipo(sheet_name: str) -> str:
+    # Normaliza o nome da planilha removendo acentos
+    s = unicodedata.normalize('NFD', str(sheet_name)).upper()
+    s_plain = re.sub(r'\s+', '', ''.join(c for c in s if unicodedata.category(c) != 'Mn'))
+    
+    # Identifica o tipo de benefício
+    if 'IDOSA' in s or 'IDOSO' in s:
+        return 'IDOSA'
+    if 'PCD' in s_plain or ('PESSOA' in s_plain and ('DEFICI' in s_plain or 'COMDEFICIENCIA' in s_plain)):
+        return 'PCD'
+    if 'BPC' in s_plain or 'TOTAL' in s_plain:
+        return 'BPC'
+    return s.replace(' ', '_')
+
+def processar_dataframe(df: pd.DataFrame, tipo: str = 'BPC'):
+    # Seleciona apenas as 4 primeiras colunas
+    df = df.iloc[:, :4].copy()
+    
+    # Define os nomes das colunas de acordo com o tipo
+    if tipo in ('CADUNICO', 'BOLSA_FAMILIA'):
+        df.columns = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Total_Familias']
+        col_total = 'Total_Familias'
+    else:
+        df.columns = ['Macrorregiao', 'Subprefeitura', 'Distrito', 'Total']
+        col_total = 'Total'
+
+    # Propaga valores de Macrorregiao e Subprefeitura para baixo
+    df[['Macrorregiao', 'Subprefeitura']] = df[['Macrorregiao', 'Subprefeitura']].ffill()
+    
+    # Remove linhas completamente vazias
+    df = df.dropna(how='all')
+
+    # Limpa e normaliza os dados
+    for c in df.columns:
+        if df[c].dtype == 'object':
+            df[c] = df[c].fillna('NAO INFORMADO').apply(lambda v: _clean_text_cell(v) if not pd.isnull(v) else v)
+        else:
+            df[c] = df[c].fillna(0)
+
+    # Remove linhas inválidas
+    df = df[~((df['Macrorregiao'] == 'NAO INFORMADO') & (df['Subprefeitura'] == 'NAO INFORMADO') & (df['Distrito'] == 'NAO INFORMADO'))]
+    df = df[~df['Distrito'].str.contains('TOTAL', na=False)]
+    df = df[df['Distrito'] != 'NAO INFORMADO']
+
+    # Converte coluna de total para inteiro
+    df[col_total] = pd.to_numeric(df[col_total], errors='coerce').fillna(0).astype(int)
+    
+    # Retorna apenas registros com total maior que zero
+    return df[df[col_total] > 0], col_total
 
 def process_files():
     """Processa os arquivos do bucket raw e salva no bucket trusted"""

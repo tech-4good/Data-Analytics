@@ -70,6 +70,13 @@ resource "aws_security_group" "sg_publica" {
     cidr_blocks = [var.cidr_qualquer_ip]
   }
 
+    ingress {
+    from_port = 3000
+    to_port = 3000
+    protocol = "tcp"
+    cidr_blocks = [var.cidr_qualquer_ip]
+  }
+
   egress {
     from_port = 0
     to_port = 0
@@ -82,33 +89,41 @@ resource "aws_security_group" "sg_publica" {
 # instancia 
 
 resource "aws_instance" "ec2_publica" {
-  ami = "ami-00ca32bbc84273381"
-  key_name = "vockey"
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.subrede_publica.id
-  vpc_security_group_ids = [aws_security_group.sg_publica.id]
+  ami                         = "ami-0e86e20dae9224db8"
+  key_name                    = "vockey"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.subrede_publica.id
+  vpc_security_group_ids      = [aws_security_group.sg_publica.id]
   associate_public_ip_address = true
-  tags = {
-    Name = "ec2-analytics"
+
+  user_data = join("\n\n", [
+    file("${path.module}/instalacao/instalar_grafana.sh")
+  ])
+
+  user_data_replace_on_change = true
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("./vockey.pem")
+    host        = self.public_ip 
   }
+
+  tags = { Name = "ec2-analytics" }
 }
 
 #buckets 
 
-resource "random_id" "suffix" {
-  byte_length = 4
-}
-
 resource "aws_s3_bucket" "raw" {
-  bucket = "analise-dados-raw-${random_id.suffix.hex}"
+  bucket = "t4g-raw"
   tags = { Name = "Raw" }
 }
 resource "aws_s3_bucket" "trusted" {
-  bucket = "analise-dados-trusted-${random_id.suffix.hex}"
+  bucket = "t4g-trusted"
   tags = { Name = "Trusted" }
 }
 resource "aws_s3_bucket" "curated" {
-  bucket = "analise-dados-curated-${random_id.suffix.hex}"
+  bucket = "t4g-curated"
   tags = { Name = "Curated" }
 }
 
@@ -155,7 +170,7 @@ data "archive_file" "lambda_RT_zip" {
 
 resource "aws_lambda_function" "funcao_lambda1_RT" {
   function_name    = "funcao1-terraform"
-  handler          = "funcao_lambda1.lambda_handler"
+  handler          = "lambda_raw_trusted.lambda_handler"
   runtime          = "python3.12"
   timeout          = 300
   memory_size      = 512 

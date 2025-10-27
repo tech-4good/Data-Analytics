@@ -19,3 +19,6 @@ crash.*.log
 
 # Aquivos de lock
 .terraform.lock.*
+
+#n enviar chave .pem
+*.pem 
