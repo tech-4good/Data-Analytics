@@ -199,7 +199,7 @@ data "archive_file" "lambda_TR_zip" {
 
 resource "aws_lambda_function" "funcao_lambda2_TR" {
   function_name    = "funcao2-terraform"
-  handler          = "funcao_lambda2.lambda_handler"
+  handler          = "lambda_trusted_client.lambda_handler"
   runtime          = "python3.12"
   timeout          = 300
   memory_size      = 512 

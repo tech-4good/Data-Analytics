@@ -22,3 +22,5 @@ crash.*.log
 
 #n enviar chave .pem
 *.pem 
+
+*.zip
