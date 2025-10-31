@@ -63,3 +63,6 @@ Thumbs.db
 *.crt
 config.ini
 secrets.json
+
+*/log
+*.log

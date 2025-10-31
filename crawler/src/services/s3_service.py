@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from typing import Optional, Dict
 from botocore.exceptions import ClientError
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 

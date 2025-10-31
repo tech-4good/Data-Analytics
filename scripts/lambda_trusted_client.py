@@ -155,8 +155,8 @@ def process_extrema_pobreza(s3, trusted_bucket, client_bucket):
     """Processa dados de extrema pobreza"""
     try:
         # Lê os arquivos necessários do bucket trusted
-        path_observa = 'Arquivos_Tratados/ObservaSampaDadosAbertosIndicadoresCSV_tratado.csv'
-        path_mapa = 'Arquivos_Tratados/mapa_da_desigualdade_2024_dados_tratado.csv'
+        path_observa = 'Arquivos_Tratados/tabelao_indicadores_observa.csv'
+        path_mapa = 'Arquivos_Tratados/tabelao_indicadores_mapa.csv'
         path_cadunico = 'Arquivos_Tratados/cadunico_familias_jul24_tratado.csv'
         
         # Lista para armazenar os DataFrames carregados
@@ -307,37 +307,38 @@ def process_transferencia_renda(s3, trusted_bucket, client_bucket, regiao='SE'):
     """Processa dados de transferência de renda"""
     try:
         # Lê os arquivos necessários do bucket trusted
-        path_bolsa = 'Arquivos_Tratados/programa_bolsafamilia_2024_1_tratado.csv'
-        path_bpc = 'Arquivos_Tratados/BPC_Setembro_2024_tratado.csv'
+        path_beneficios = 'Arquivos_Tratados/tabelao_beneficios.csv'
         path_cadunico = 'Arquivos_Tratados/cadunico_familias_jul24_tratado.csv'
-        path_observa = 'Arquivos_Tratados/ObservaSampaDadosAbertosIndicadoresCSV_tratado.csv'
+        path_observa = 'Arquivos_Tratados/tabelao_indicadores_observa.csv'
         
-        # Lê e concatena os dados de benefícios
-        dfs_beneficios = []
-        
-        # Bolsa Família
-        df_bolsa = read_and_clean_csv(s3, trusted_bucket, path_bolsa, ['Total_Familias'])
-        if df_bolsa is not None:
-            df_bolsa['Programa'] = 'BOLSA FAMILIA'
-            dfs_beneficios.append(df_bolsa)
-        
-        # BPC
-        df_bpc = read_and_clean_csv(s3, trusted_bucket, path_bpc, ['Total'])
-        if df_bpc is not None:
-            df_bpc['Programa'] = 'BPC'
-            dfs_beneficios.append(df_bpc)
-        
-        # CadÚnico
-        df_cad = read_and_clean_csv(s3, trusted_bucket, path_cadunico, ['Total_Familias'])
-        if df_cad is not None:
-            df_cad['Programa'] = 'CADUNICO'
-            dfs_beneficios.append(df_cad)
-
-        if not dfs_beneficios:
-            raise FileNotFoundError("Nenhum arquivo de benefícios encontrado")
-
+        # Inicializa o dicionário de DataFrames
         dfs = {}
-        dfs['beneficios'] = pd.concat(dfs_beneficios, ignore_index=True)
+        
+        # Lê o arquivo consolidado de benefícios
+        dfs['beneficios'] = read_and_clean_csv(s3, trusted_bucket, path_beneficios)
+        if dfs['beneficios'] is None:
+            raise FileNotFoundError(f"Arquivo de benefícios não encontrado: {path_beneficios}")
+        
+        # Identificar a coluna de quantidade
+        col_qt = None
+        for possible_col in ['Quantidade_Beneficiados', 'Quantidade', 'Total_Beneficiarios', 'Total', 'Total_Familias']:
+            if possible_col in dfs['beneficios'].columns:
+                col_qt = possible_col
+                break
+        
+        if col_qt is None:
+            # Se não encontrou, tenta detectar automaticamente
+            col_qt = detect_quantity_column(dfs['beneficios'])
+            if col_qt:
+                print(f"Coluna de quantidade detectada automaticamente: {col_qt}")
+            else:
+                raise RuntimeError("Não foi possível identificar a coluna de quantidade no arquivo de benefícios")
+        
+        # Converter para numérico já no início
+        dfs['beneficios'][col_qt] = pd.to_numeric(dfs['beneficios'][col_qt], errors='coerce').fillna(0)
+            
+        # CadÚnico para referência se necessário
+        dfs['cadunico'] = read_and_clean_csv(s3, trusted_bucket, path_cadunico, ['Total_Familias'])
         dfs['observa'] = read_and_clean_csv(s3, trusted_bucket, path_observa, ['Resultado'])
         
         if dfs['observa'] is None:
@@ -397,72 +398,132 @@ def process_transferencia_renda(s3, trusted_bucket, client_bucket, regiao='SE'):
             df_benef_region = dfs['beneficios'].copy()
 
         # Separar os dados por programa e categoria
-        df_resumo_beneficios = df_benef_region.groupby([col_distr, col_prog, col_cat], as_index=False)[col_qt].sum()
+        # Garantir que a coluna de quantidade é numérica antes do groupby
+        df_benef_region[col_qt] = pd.to_numeric(df_benef_region[col_qt], errors='coerce').fillna(0)
+        
+        df_resumo_beneficios = df_benef_region.groupby([col_distr, col_prog, col_cat], as_index=False).agg(
+            {col_qt: 'sum'}
+        )
+        
         df_resumo_beneficios = df_resumo_beneficios.rename(columns={
             col_distr: 'Distrito', 
             col_prog: 'Programa', 
             col_cat: 'Categoria', 
             col_qt: 'Quantidade_Beneficiados'
         })
+        
+        # Garantir que Quantidade_Beneficiados é numérico
+        df_resumo_beneficios['Quantidade_Beneficiados'] = pd.to_numeric(
+            df_resumo_beneficios['Quantidade_Beneficiados'], 
+            errors='coerce'
+        ).fillna(0)
 
         # Normalizando as colunas
         df_resumo_beneficios['Programa_up'] = df_resumo_beneficios['Programa'].astype(str).str.upper()
         df_resumo_beneficios['Categoria_up'] = df_resumo_beneficios['Categoria'].astype(str).str.upper()
 
-        # Calcular os totais por programa
+        # Calcular os totais por programa usando agg para garantir soma numérica
         # Bolsa Família
         mask_bolsa = df_resumo_beneficios['Programa_up'].str.contains('BOLSA')
-        df_bolsa = df_resumo_beneficios[mask_bolsa].groupby('Distrito', as_index=False)['Quantidade_Beneficiados'].sum()
-        df_bolsa = df_bolsa.rename(columns={'Quantidade_Beneficiados': 'BOLSA_FAMILIA'})
+        df_bolsa = df_resumo_beneficios[mask_bolsa].groupby('Distrito', as_index=False).agg(
+            BOLSA_FAMILIA=('Quantidade_Beneficiados', 'sum')
+        )
 
         # BPC
         mask_bpc_prog = df_resumo_beneficios['Programa_up'].str.contains('BPC')
         mask_bpc_cat = df_resumo_beneficios['Categoria_up'].isin(['PCD', 'IDOSA'])
-        df_bpc = df_resumo_beneficios[mask_bpc_prog & mask_bpc_cat].groupby('Distrito', as_index=False)['Quantidade_Beneficiados'].sum()
-        df_bpc = df_bpc.rename(columns={'Quantidade_Beneficiados': 'BPC'})
+        df_bpc = df_resumo_beneficios[mask_bpc_prog & mask_bpc_cat].groupby('Distrito', as_index=False).agg(
+            BPC=('Quantidade_Beneficiados', 'sum')
+        )
 
         # CadUnico
         mask_cad = df_resumo_beneficios['Programa_up'].str.contains('CADUNICO')
-        df_cad = df_resumo_beneficios[mask_cad].groupby('Distrito', as_index=False)['Quantidade_Beneficiados'].sum()
-        df_cad = df_cad.rename(columns={'Quantidade_Beneficiados': 'CADUNICO'})
+        df_cad = df_resumo_beneficios[mask_cad].groupby('Distrito', as_index=False).agg(
+            CADUNICO=('Quantidade_Beneficiados', 'sum')
+        )
+
+        # Garantir que todas as colunas são numéricas
+        for df in [df_bolsa, df_bpc, df_cad]:
+            for col in df.columns:
+                if col != 'Distrito':
+                    df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
         # DataFrame por distrito com os totais
         df_pivot = df_bolsa.merge(df_bpc, on='Distrito', how='outer').merge(df_cad, on='Distrito', how='outer').fillna(0)
-        df_pivot['BOLSA_FAMILIA'] = df_pivot['BOLSA_FAMILIA'].astype(int)
-        df_pivot['BPC'] = df_pivot['BPC'].astype(int)
-        df_pivot['CADUNICO'] = df_pivot['CADUNICO'].astype(int)
+        
+        # Garantir que as colunas são numéricas
+        numeric_columns = ['BOLSA_FAMILIA', 'BPC', 'CADUNICO']
+        for col in numeric_columns:
+            df_pivot[col] = pd.to_numeric(df_pivot[col], errors='coerce').fillna(0).astype(float)
+            # Converter para inteiro apenas se não houver valores decimais
+            if (df_pivot[col] % 1 == 0).all():
+                df_pivot[col] = df_pivot[col].astype(int)
         
         # Processar dados do ObservaSampa se disponível
         if dfs['observa'] is not None:
-            df_observa_filtrado = dfs['observa'][
-                (dfs['observa']['Nome'].isin(indicadores_transferencia)) & 
-                (dfs['observa']['Período'] == 2024)
-            ].copy()
-            
-            if df_observa_filtrado.empty:
-                print("AVISO: Nenhum indicador do ObservaSampa encontrado para 2024")
+            # Localizar colunas corretas
+            col_nome = find_column(dfs['observa'], ['Nome', 'INDICADOR', 'Indicador', 'nome'])
+            col_periodo = find_column(dfs['observa'], ['Período', 'Periodo', 'ANO', 'Ano'])
+            col_distrito = find_column(dfs['observa'], ['Distrito', 'distrito', 'Area', 'Regiao'])
+            col_resultado = find_column(dfs['observa'], ['Resultado', 'Valor', 'resultado', 'Valor Resultado'])
+
+            if None in [col_nome, col_periodo, col_distrito, col_resultado]:
+                print("AVISO: Colunas necessárias não encontradas no ObservaSampa")
                 df_observa_resumo = pd.DataFrame(columns=['Distrito', 'Media_Familias_Indicadores'])
             else:
-                df_observa_filtrado['Resultado'] = pd.to_numeric(
-                    df_observa_filtrado['Resultado'], 
-                    errors='coerce'
-                )
+                # Converter período para string para comparação
+                periodo_str = dfs['observa'][col_periodo].astype(str)
                 
-                # Juntar por distrito e calcular a média
-                df_observa_resumo = df_observa_filtrado.groupby('Distrito').agg({
-                    'Resultado': 'mean'
-                }).reset_index()
-                df_observa_resumo = df_observa_resumo.rename(columns={'Resultado': 'Media_Familias_Indicadores'})
+                # Filtrar dados
+                df_observa_filtrado = dfs['observa'][
+                    (dfs['observa'][col_nome].isin(indicadores_transferencia)) & 
+                    (periodo_str.str.contains('2024'))
+                ].copy()
+                
+                if df_observa_filtrado.empty:
+                    print("AVISO: Nenhum indicador do ObservaSampa encontrado para 2024")
+                    df_observa_resumo = pd.DataFrame(columns=['Distrito', 'Media_Familias_Indicadores'])
+                else:
+                    print(f"Indicadores encontrados para 2024: {df_observa_filtrado[col_nome].unique().tolist()}")
+                    
+                    # Converter resultado para numérico
+                    df_observa_filtrado[col_resultado] = pd.to_numeric(
+                        df_observa_filtrado[col_resultado], 
+                        errors='coerce'
+                    ).fillna(0)
+                    
+                    # Juntar por distrito e calcular a média
+                    df_observa_resumo = df_observa_filtrado.groupby(col_distrito).agg({
+                        col_resultado: 'mean'
+                    }).reset_index()
+                    
+                    df_observa_resumo = df_observa_resumo.rename(columns={
+                        col_distrito: 'Distrito',
+                        col_resultado: 'Media_Familias_Indicadores'
+                    })
         else:
             df_observa_resumo = pd.DataFrame(columns=['Distrito', 'Media_Familias_Indicadores'])
         
+        # Garantir que Media_Familias_Indicadores é numérico antes do merge
+        if 'Media_Familias_Indicadores' in df_observa_resumo.columns:
+            df_observa_resumo['Media_Familias_Indicadores'] = pd.to_numeric(
+                df_observa_resumo['Media_Familias_Indicadores'], 
+                errors='coerce'
+            ).fillna(0)
+            
         df_resultado = df_pivot.merge(df_observa_resumo, on='Distrito', how='left')
+        df_resultado['Media_Familias_Indicadores'] = df_resultado['Media_Familias_Indicadores'].fillna(0)
         
         # Calcular o total de beneficiados
+        # Garantir que todas as colunas são numéricas antes de somar
+        for col in ['BOLSA_FAMILIA', 'BPC', 'CADUNICO']:
+            if not pd.api.types.is_numeric_dtype(df_resultado[col]):
+                df_resultado[col] = pd.to_numeric(df_resultado[col], errors='coerce').fillna(0)
+                
         df_resultado['Total_Beneficiados'] = (
-            df_resultado['BOLSA_FAMILIA'] + 
-            df_resultado['BPC'] + 
-            df_resultado['CADUNICO']
+            df_resultado['BOLSA_FAMILIA'].astype(float) + 
+            df_resultado['BPC'].astype(float) + 
+            df_resultado['CADUNICO'].astype(float)
         )
         
         # Calcular os percentuais de cada programa
@@ -525,8 +586,8 @@ def process_educacao(s3, trusted_bucket, client_bucket):
     """Processa dados de educação"""
     try:
         # Lê os arquivos necessários do bucket trusted
-        path_observa = 'Arquivos_Tratados/ObservaSampaDadosAbertosIndicadoresCSV_tratado.csv'
-        path_mapa = 'Arquivos_Tratados/mapa_da_desigualdade_2024_dados_tratado.csv'
+        path_observa = 'Arquivos_Tratados/tabelao_indicadores_observa.csv'
+        path_mapa = 'Arquivos_Tratados/tabelao_indicadores_mapa.csv'
         
         # Lista para armazenar os DataFrames carregados
         dfs = {}
@@ -641,7 +702,7 @@ def process_habitacao(s3, trusted_bucket, client_bucket):
     """Processa dados de habitação"""
     try:
         # Lê os arquivos necessários do bucket trusted
-        path_observa = 'Arquivos_Tratados/ObservaSampaDadosAbertosIndicadoresCSV_tratado.csv'
+        path_observa = 'Arquivos_Tratados/tabelao_indicadores_observa.csv'
         
         # Lê o arquivo do ObservaSampa com tratamento numérico
         df_observa = read_and_clean_csv(s3, trusted_bucket, path_observa, ['Resultado'])
@@ -785,7 +846,7 @@ def consolidar_dados(s3, trusted_bucket):
         try:
             response = s3.list_objects_v2(
                 Bucket=trusted_bucket,
-                Prefix='Arquivos_Tratados/Consolidados/'
+                Prefix='Arquivos_Tratados/'
             )
             if 'Contents' in response:
                 for obj in response['Contents']:
@@ -839,7 +900,7 @@ def consolidar_dados(s3, trusted_bucket):
                     df_beneficios.to_csv(output_buffer, index=False, encoding='utf-8-sig', sep=';')
                     s3.put_object(
                         Bucket=trusted_bucket,
-                        Key='Arquivos_Tratados/Consolidados/tabelao_beneficios.csv',
+                        Key='Arquivos_Tratados/tabelao_beneficios.csv',
                         Body=output_buffer.getvalue().encode('utf-8-sig')
                     )
                     print("Tabelão de benefícios criado com sucesso!")
@@ -853,7 +914,7 @@ def consolidar_dados(s3, trusted_bucket):
                     df_obs.to_csv(output_buffer, index=False, encoding='utf-8-sig', sep=';')
                     s3.put_object(
                         Bucket=trusted_bucket,
-                        Key='Arquivos_Tratados/Consolidados/tabelao_indicadores_observa.csv',
+                        Key='Arquivos_Tratados/tabelao_indicadores_observa.csv',
                         Body=output_buffer.getvalue().encode('utf-8-sig')
                     )
                     print("Tabelão de indicadores do ObservaSampa criado com sucesso!")
@@ -867,7 +928,7 @@ def consolidar_dados(s3, trusted_bucket):
                     df_mapa.to_csv(output_buffer, index=False, encoding='utf-8-sig', sep=';')
                     s3.put_object(
                         Bucket=trusted_bucket,
-                        Key='Arquivos_Tratados/Consolidados/tabelao_indicadores_mapa.csv',
+                        Key='Arquivos_Tratados/tabelao_indicadores_mapa.csv',
                         Body=output_buffer.getvalue().encode('utf-8-sig')
                     )
                     print("Tabelão de indicadores do Mapa criado com sucesso!")
@@ -949,11 +1010,10 @@ def lambda_handler(event, context):
         
         # Lista os arquivos necessários e verifica quais estão disponíveis
         required_files = [
-            'Arquivos_Tratados/ObservaSampaDadosAbertosIndicadoresCSV_tratado.csv',
-            'Arquivos_Tratados/mapa_da_desigualdade_2024_dados_tratado.csv',
+            'Arquivos_Tratados/tabelao_indicadores_observa.csv',
+            'Arquivos_Tratados/tabelao_indicadores_mapa.csv',
             'Arquivos_Tratados/cadunico_familias_jul24_tratado.csv',
-            'Arquivos_Tratados/programa_bolsafamilia_2024_1_tratado.csv',
-            'Arquivos_Tratados/BPC_Setembro_2024_tratado.csv'
+            'Arquivos_Tratados/tabelao_beneficios.csv'
         ]
         
         print("Verificando arquivos necessários:")
