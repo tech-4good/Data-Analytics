@@ -44,19 +44,6 @@ class S3Service:
             logger.exception(f"Failed to upload file to S3: {e}")
             raise
 
-    def upload_bytes(self, data: bytes, key: str, content_type: Optional[str] = None, extra_args: Optional[Dict] = None) -> str:
-        put_kwargs = {"Bucket": self.bucket, "Key": key, "Body": data}
-        if content_type:
-            put_kwargs["ContentType"] = content_type
-        if extra_args:
-            put_kwargs.update(extra_args)
-        try:
-            self.client.put_object(**put_kwargs)
-            return self._object_url(key)
-        except ClientError as e:
-            logger.exception(f"Failed to upload bytes to S3: {e}")
-            raise
-
     def generate_presigned_url(self, key: str, expires_in: int = 3600) -> str:
         try:
             url = self.client.generate_presigned_url(
