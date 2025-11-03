@@ -262,6 +262,160 @@ def processar_arquivo_generico(base_dir: str, arquivo: str, saida: str, mes: str
 	except Exception as e:
 		print(f'Erro ao processar {tipo}: {e}')
 
+def extrair_nome_alimento(caminho_arquivo: str) -> str:
+	try:
+		# Lê a segunda linha do arquivo que tem o nome do alimento
+		df_header = pd.read_excel(caminho_arquivo, header=None, nrows=2)
+		nome_alimento = str(df_header.iloc[1, 1]).strip()
+		
+		# Se conseguir ler o nome do arquivo retorna ele
+		if nome_alimento and nome_alimento != 'nan':
+			return nome_alimento
+	except Exception:
+		pass
+
+	# Usa o nome do arquivo com mapeamento
+	nome_base = os.path.splitext(os.path.basename(caminho_arquivo))[0]
+	mapeamento = {
+		'acucar': 'Açúcar',
+		'arroz': 'Arroz',
+		'cafe': 'Café',
+		'farinha': 'Farinha',
+		'feijao': 'Feijão',
+		'leite': 'Leite',
+		'oleo': 'Óleo'
+	}
+	return mapeamento.get(nome_base.lower(), nome_base.title())
+
+def processar_arquivo_alimento(caminho_arquivo: str):
+	try:		
+		# Extrai o nome do alimento
+		nome_alimento = extrair_nome_alimento(caminho_arquivo)
+		
+		# Lê o arquivo pulando as 2 primeiras linhas
+		df = pd.read_excel(caminho_arquivo, header=None, skiprows=2)
+		
+		# Verifica se o arquivo tem pelo menos duas colunas
+		if df.shape[1] < 2:
+			print(f"Arquivo com estrutura inadequada (menos de 2 colunas)")
+			return None
+		
+		# Renomeia as colunas de acordo com a padronização
+		df.columns = ['data', 'preco']
+		
+		# Remove as linhas com valores nulos na data ou preço
+		df = df.dropna(subset=['data', 'preco'])
+		
+		if len(df) == 0:
+			print(f"Nenhum dado válido encontrado")
+			return None
+		
+		# Processa as coluna de data
+		df['data'] = df['data'].astype(str).str.strip()
+		
+		# Separa o mês e ano
+		df[['data_mes', 'data_ano']] = df['data'].str.split('-', expand=True)
+		
+		# Converte o mês e ano para inteiros
+		df['data_mes'] = pd.to_numeric(df['data_mes'], errors='coerce').astype('Int64')
+		df['data_ano'] = pd.to_numeric(df['data_ano'], errors='coerce').astype('Int64')
+
+		# Converte os preços para float
+		df['preco'] = pd.to_numeric(df['preco'], errors='coerce')
+		
+		# Remove as linhas com valores inválidos após a conversão
+		df = df.dropna(subset=['data_mes', 'data_ano', 'preco'])
+		
+		# Adiciona uma coluna com nome do alimento
+		df['nome'] = nome_alimento
+		
+		# Adiciona uma coluna com nome do mês por extenso
+		meses = {
+			1: 'JANEIRO', 2: 'FEVEREIRO', 3: 'MARÇO', 4: 'ABRIL',
+			5: 'MAIO', 6: 'JUNHO', 7: 'JULHO', 8: 'AGOSTO',
+			9: 'SETEMBRO', 10: 'OUTUBRO', 11: 'NOVEMBRO', 12: 'DEZEMBRO'
+		}
+		df['mes_nome'] = df['data_mes'].map(meses)
+		
+		# Seleciona e reordena as colunas finais
+		df = df[['nome', 'preco', 'data_mes', 'mes_nome', 'data_ano']]
+		
+		# Ordena as linhas por ano e mês
+		df = df.sort_values(['data_ano', 'data_mes']).reset_index(drop=True)
+				
+		return df
+		
+	except Exception as e:
+		print(f"Erro ao processar {os.path.basename(caminho_arquivo)}: {e}")
+		return None
+
+def processar_valores_alimentos(base_dir: str):
+	print('\nProcessando Valores de Alimentos')
+	
+	# Define os caminhos de entrada e saída
+	input_folder = os.path.join(base_dir, 'Arquivos_Brutos', 'valores_alimentos')
+	output_folder = os.path.join(base_dir, 'Arquivos_Tratados')
+	
+	# Verifica se a pasta de entrada existe
+	if not os.path.exists(input_folder):
+		print(f'Erro: Pasta não encontrada: {input_folder}')
+		return
+	
+	# Cria a pasta de saída se não existir
+	os.makedirs(output_folder, exist_ok=True)
+	
+	# Lista todos os arquivos .xls
+	arquivos_xls = [f for f in os.listdir(input_folder) if f.endswith('.xls')]
+	
+	if not arquivos_xls:
+		print(f'Erro: Nenhum arquivo .xls encontrado em {input_folder}')
+		return
+	
+	print(f'Arquivos encontrados: {len(arquivos_xls)}')
+	
+	# Processa cada arquivo
+	dataframes = []
+	arquivos_sucesso = []
+	arquivos_erro = []
+	
+	for arquivo in sorted(arquivos_xls):
+		caminho_completo = os.path.join(input_folder, arquivo)
+		df = processar_arquivo_alimento(caminho_completo)
+		
+		if df is not None and len(df) > 0:
+			dataframes.append(df)
+			arquivos_sucesso.append(arquivo)
+		else:
+			arquivos_erro.append(arquivo)
+
+	# Consolida todos os aataframes
+	if not dataframes:
+		print('Erro: Nenhum dado foi processado com sucesso')
+		return
+	
+	df_consolidado = pd.concat(dataframes, ignore_index=True)
+
+	# Ordena as linhas por alimento, ano e mês
+	df_consolidado = df_consolidado.sort_values(['nome', 'data_ano', 'data_mes']).reset_index(drop=True)
+	
+	# Salva o CSV consolidado
+	output_csv = os.path.join(output_folder, 'valores_alimentos_consolidado.csv')
+	df_consolidado.to_csv(output_csv, index=False, encoding='utf-8-sig')
+	
+	# Obtém o primeiro e último período cronologicamente
+	primeiro_registro = df_consolidado.iloc[0]
+	ultimo_registro = df_consolidado.iloc[-1]
+	
+	print('Processado com sucesso!')
+	print(f'Registros: {len(df_consolidado):,}')
+	print(f'Alimentos: {df_consolidado["nome"].nunique()}')
+	print(f'Período: {int(primeiro_registro["data_mes"]):02d}/{int(primeiro_registro["data_ano"])} a {int(ultimo_registro["data_mes"]):02d}/{int(ultimo_registro["data_ano"])}')
+	
+	if arquivos_erro:
+		print(f'\nArquivos com erro: {len(arquivos_erro)}')
+		for arquivo in arquivos_erro:
+			print(f'  {arquivo}')
+
 def main():
 	# Obtém o diretório base do projeto
 	script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -306,6 +460,9 @@ def main():
 		
 		# Processa Bolsa Família
 		processar_arquivo_generico(base_dir, 'programa_bolsafamilia_2024_1.xlsx', 'programa_bolsafamilia_2024_1_tratado.csv', 'JANEIRO', 2024, 'BOLSA_FAMILIA')
+		
+		# Processa Valores de Alimentos
+		processar_valores_alimentos(base_dir)
 	except Exception as e:
 		print(f'Erro geral: {str(e)[:200]}')
 

@@ -143,6 +143,41 @@ def consolidar_cadunico():
     print(f"CadUnico: {len(df)} registros, {df['Quantidade_Beneficiados'].sum()} familias")
     return df[colunas]
 
+def consolidar_valores_alimentos():
+    print("\nCarregando Valores de Alimentos...")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(script_dir)
+    caminho = os.path.join(base_dir, 'Arquivos_Tratados', 'valores_alimentos_consolidado.csv')
+    
+    df = carregar_csv(caminho)
+    if df is None:
+        return None
+    
+    if len(df) == 0:
+        return None
+    
+    # Padroniza as colunas 
+    df = df.rename(columns={
+        'nome': 'Alimento',
+        'preco': 'Preco_Medio',
+        'data_mes': 'Mes_Numero',
+        'mes_nome': 'Mes',
+        'data_ano': 'Ano'
+    })
+    
+    # Seleciona e ordena as colunas finais
+    colunas = ['Alimento', 'Preco_Medio', 'Mes', 'Mes_Numero', 'Ano']
+    df = df[colunas]
+
+    # Ordena as linhas por alimento, ano e mes
+    df = df.sort_values(['Alimento', 'Ano', 'Mes_Numero']).reset_index(drop=True)
+    
+    print(f"Valores de Alimentos: {len(df)} registros")
+    print(f"Alimentos: {df['Alimento'].nunique()}")
+    print(f"Periodo: {df['Mes_Numero'].min():02d}/{df['Ano'].min()} a {df['Mes_Numero'].max():02d}/{df['Ano'].max()}")
+    
+    return df
+
 def consolidar_beneficios():
     print("Consolidando os benefícios")
     print("="*70)
@@ -228,7 +263,7 @@ def consolidar_observasampa():
     return df_final
 
 # Salvando os dados
-def salvar_consolidados(df_beneficios, df_mapa, df_observa):
+def salvar_consolidados(df_beneficios, df_mapa, df_observa, df_alimentos):
     print("Salvando os dads")
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -251,6 +286,11 @@ def salvar_consolidados(df_beneficios, df_mapa, df_observa):
         df_observa.to_csv(caminho, index=False, encoding='utf-8-sig')
         print(f"Salvo: tabelao_indicadores_observa.csv ({len(df_observa)} registros)")
     
+    if df_alimentos is not None and len(df_alimentos) > 0:
+        caminho = os.path.join(output_dir, 'tabelao_valores_alimentos.csv')
+        df_alimentos.to_csv(caminho, index=False, encoding='utf-8-sig')
+        print(f"Salvo: tabelao_valores_alimentos.csv ({len(df_alimentos)} registros)")
+    
     print(f"\nArquivos em: {output_dir}")
     return output_dir
 
@@ -261,8 +301,9 @@ def main():
         df_beneficios = consolidar_beneficios()
         df_mapa = consolidar_mapa_desigualdade()
         df_observa = consolidar_observasampa()
+        df_alimentos = consolidar_valores_alimentos()
         
-        salvar_consolidados(df_beneficios, df_mapa, df_observa)
+        salvar_consolidados(df_beneficios, df_mapa, df_observa, df_alimentos)
         
         print("Finalizado")
         
