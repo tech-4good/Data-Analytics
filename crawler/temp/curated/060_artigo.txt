@@ -1,0 +1,1661 @@
+DESIGUALDADE EDUCACIONAL
+E SEGREGAÇÃO SOCIAL NA REGIÃO
+METROPOLITANA DE SÃO PAULO
+
+Haroldo Torres e Sandra Gomes
+
+RESUMO
+Este  artigo  tem  por  objetivo  situar  o  debate  sobre  a  questão  da  desigualdade  educacional  no
+contexto  da  Região  Metropolitana  de  São  Paulo,  buscando  explorar  suas  lógicas  subjacentes.
+Para tanto, recorre-se a informações sobre desempenho escolar de alunos da 5ª série do ensino
+fundamental e  nível  de  escolaridade  da  família,  analisadas conforme os padrões que assumem
+nos diversos distritos ou setores censitários da Região. Tais informações são organizadas em um
+Sistema  de  Informações  Geográficas,  que  permite  identificar  padrões  de  heterogeneidade  do
+desempenho  educacional  em  sua  dimensão  espacial.
+Palavras-chave:  desigualdade  educacional;  políticas  públicas;  Região  Metropolitana  de  São
+Paulo.
+
+SUMMARY
+The  article  introduces  the  debate  on  educational  inequalities  in  the  context  of the  São  Paulo
+Metropolitan Area,  exploring its  underlying logics.  It employs  information on the  performance
+of  5th  grade  students  and  the  educational  level  of their  families,  analyzing  patterns  of perfor-
+mance  in  districts  and  census  tracts  of the  Metropolitan  Area.  Such  information  is  organized
+within  a  Geographic  Information  System,  which  allows  the  identification  of  heterogeneous
+patterns  of schooling  performance  in  its  spatial  dimension.
+Keywords:  educational  inequalities;  public policies;  São  Paulo  Metropolitan  Area.
+
+Para qualquer observador da cena brasileira,  é uma obviedade afirmar
+que  os  pobres  têm  pior acesso  aos  serviços  públicos.  No entanto,  isso  não
+pode ser tomado como regra geral: o acesso varia de modo significativo entre
+regiões  e  famílias  com  o  mesmo  nível  de  renda  —  tema  que  tem  sido
+destacado, por exemplo,  no âmbito do projeto de desenvolvimento humano
+das  Nações  Unidas1.  A fim  de  situarmos  nossas  considerações  em torno  do
+objeto  central  deste  artigo  —  a  desigualdade  educacional  no  âmbito  da
+Região  Metropolitana  de  São  Paulo  —,  examinemos  as  principais  linhas
+explicativas apresentadas pela literatura acerca da desigualdade na oferta de
+serviços públicos.
+
+Um primeiro argumento baseia-se na idéia de que os segmentos menos
+educados e com uma rede de relações sociais precária têm menor capacidade
+de  demandar serviços  públicos  aos  governos2.  Isso  se  verificaria  sobretudo
+onde o processo de decisão acerca dos serviços a serem oferecidos depende
+
+(1)  Programa das  Nações  Uni-
+das  para  o  Desenvolvimento
+(Pnud).  Desenvolvimento  hu-
+mano  e  condições  de  vida:  in-
+dicadores  brasileiros.  Brasília:
+1998;  Relatório  do  desenvolvi-
+mento  humano  2000.  Lisboa:
+Trinova, 2000.
+
+(2)  Cf.  Briggs,  Xavier  S.  Ties
+that  bind,  bridge,  and  cons-
+train:  social  capital  and segre-
+gation  in American Metropolis.
+Paper para o seminário "Segre-
+gation  and  the  city",  Lincoln
+Institute  of Land  Policy,  Cam-
+bridge,  julho  de  2001  <www.
+lincolninst.edu>; Burstein, Paul.
+"Social  movements  and  public
+policy".  In:  Giugni,  Marco,
+McAdam,  Doug e Tilly Charles
+(orgs.).  How  social  movement
+matter. Minneapolis:  Universi-
+ty of Minnesota Press, 1999; Ja-
+cobi,  Pedro.  Movimentos  soci-
+
+132  NOVOS  ESTUDOS  N.°  64
+
+HAROLDO TORRES E SANDRA GOMES
+
+ais e políticas públicas: deman-
+das  por  saneamento  básico  e
+saúde  —  São  Paulo  1978-84.
+São  Paulo:  Cortez,  1989;  Put-
+nam, Robert D.  Bowling alone:
+the collapse and revival of Ame-
+rican  Community.  Nova  York:
+Simon & Schuster, 2000.
+
+(3)  Cf.  Gomes,  Sandra  e  Bitar,
+Sandra.  A  oferta  de  ensino  in-
+fantil  no  município  de  Guaru-
+lhos e a discussão sobre a perife-
+ria  da Região Metropolitana de
+São  Paulo.  Paper  para  o  XIII
+Encontro  Nacional  da  Abep,
+Ouro Preto, novembro de 2002;
+Torres,  Haroldo  e  Marques,
+Eduardo. "Reflexões sobre a hi-
+perperiferia:  novas e velhas fa-
+ces da pobreza no entorno me-
+tropolitano".  Revista Brasileira
+de Estudos Urbanos e Regionais,
+nº 4, 2001.
+
+(4) Putnam (op. cit.) se refere a
+esse  fenômeno  como  o  "lado
+negro" do capital social.
+
+(5) Cf.  Evans, Peter.  Embedded
+autonomy:  States  &  industrial
+transformation.  New  Jersey:
+Princeton  University  Press,
+1994; Savich,  H. V.  Post-indus-
+trial  cities:  politics  and  plan-
+ning  in  New  York,  Paris  and
+London. New Jersey: Princeton
+University Press,  1988.
+
+(6)  Essa  hipótese  parece  ser
+mais  forte  para  determinadas
+políticas, como a de saneamen-
+to  e  infra-estrutura  urbana  (cf.
+Marques, Eduardo Cesar. Espa-
+ço  e  redes  sociais:  permeabili-
+dade  e  coesão  nas  políticas  ur-
+banas do Rio de Janeiro. Rio de
+Janeiro:  Revan,  2000).  Alguns
+autores argumentam ainda que
+esse  viés  pode  ser  observado
+sobretudo em sociedades onde
+persiste "a herança de uma cul-
+tura  institucional  produtora  de
+desigualdades"  (Werna,  Ed-
+mund.  Combating  urban  ine-
+qualities:  challenges  for  mana-
+ging  cities  in  the  developing
+world. Londres:  Edward  Elgar,
+2000).
+
+(7)  Em  face  de  indicadores  de
+desempenho  profissional  tais
+como  absenteísmo  em  escolas
+de periferia, a Secretaria de Edu-
+cação  do  Estado  de  São  Paulo
+tentou  recentemente  implantar
+um sistema de pagamento dife-
+renciado para profissionais que
+atuassem naquelas escolas, mas
+tal iniciativa foi combatida pelo
+sindicato  da  categoria  —  con-
+forme nos informaram profissi-
+onais  da  Secretaria  —-  sob  o
+argumento da  isonomia profis-
+sional.
+
+(8)  Cf.,  por exemplo,  Madeira,
+Felícia R.  "Poverty, School and
+work".  In:  Brazilian  issues  on
+education,  gender  and  race.
+São Paulo: Ed. Fundação Carlos
+Chagas, 1996; "Pobreza, escola
+e trabalho: condições virtuosas,
+conexões  viciosas".  São Paulo
+em Perspectiva: Fundação Sea-
+de, vol. 7, nº 1, 1993.
+
+diretamente da demanda  da  população local,  seja  individualmente,  seja  por
+meio de movimentos sociais. Tal parece ser o caso, por exemplo, da oferta de
+ensino infantil em três localidades da Região Metropolitana de São Paulo em
+que desenvolvemos pesquisa (Mauá, Guarulhos e Embu), onde a disponibili-
+dade de novas vagas depende em grande medida da demanda direta da popu-
+lação, uma vez que a oferta desse serviço não é imposta pela legislação, como
+no caso do ensino fundamental. Dessa forma, as áreas com maiores concentra-
+ções de pobres e migrantes recentes acabam sendo reconhecidamente aque-
+las  onde  a  oferta  do serviço  é mais precária3.  Em outras  palavras,  hipóteses
+baseadas no papel do chamado "capital social" — que considera as dinâmicas
+das  políticas  em razão  da  ação  de  grupos de  interesse  e/ou  de movimentos
+sociais — resultam logicamente num quadro de pior cobertura nas áreas que
+concentram segmentos populacionais menos organizados e educados4.
+
+Um segundo  argumento  importante  pode  ser desenvolvido  com base
+na  perspectiva  neo-institucional,  que  ressalta  o  papel  da  burocracia  nas
+diversas políticas públicas5.  De acordo com essa visão,  as características da
+burocracia  em  termos  de  treinamento,  insulamento,  coesão,  valores  etc.
+podem  afetar  significativamente  as  políticas  públicas  no  longo  prazo.  Isso
+porque os gestores que decidem sobre onde e como os serviços sociais serão
+implementados,  egressos da classe média,  não necessariamente  compreen-
+dem  os  códigos,  linguagem,  atitudes,  valores  e  necessidades  da  população
+pobre,  de  modo  que moradores  de  favelas  e  periferias  podem  ser objeto  de
+preconceito por parte  de  gestores,  que  não  os  perceberiam  como  alvo pre-
+ferencial  de  suas  políticas6.
+
+No  caso  da  política  educacional,  os  professores  e  diretores  de  escola,
+que são seus principais agentes locais, muitas vezes evitam trabalhar em locais
+de  alta  concentração  de  pobres7.  Referindo-se  ao  âmbito  paulista,  alguns
+autores  destacam  o  preconceito  social  e  racial  de  parte  desses  profissionais
+como uma importante barreira histórica para a provisão de serviços educacio-
+nais  em  áreas  pobres8.  De  fato,  a  questão  do  preconceito  das  burocracias  e
+servidores públicos em relação a pobres e negros não deve ser menosprezada
+quando se pensa a questão da desigualdade na provisão de serviços sociais,
+haja  vista  a  longa  tradição  de  desigualdade  e  preconceito  que  perpassa  as
+diversas dimensões da vida social do país9.
+
+Um  terceiro  argumento  segue  a  tradição  estabelecida  pela  economia
+institucional,  propondo que a estabilidade do sistema judicial e do regime de
+propriedade privada influencia a performance econômica no longo prazo,  ou
+seja, sistemas legais organizados propiciariam uma condição de menos riscos
+econômicos  e  mais  estímulos  para  investimentos  públicos10.  Organizações
+internacionais  como  o  Banco  Mundial  freqüentemente  têm  lançado  mão
+desse  argumento  ao  defender  a  regularização  fundiária  como  precondição
+para o desenvolvimento econômico e social11.  Parece inquestionável porém
+que  leis e regulamentos  em torno  dos múltiplos aspectos  da vida  social não
+podem  ser  tomados  como  dados  nos  países  em  desenvolvimento,  em  que
+vigoram múltiplas condições de informalidade12,  particularmente no que diz
+respeito ao uso da terra, de modo que somente umas poucas localidades — as
+
+NOVEMBRO DE 2002 
+
+133
+
+DESIGUALDADE EDUCACIONAL E SEGREGAÇÃO SOCIAL NA REGIÃO METROPOLITANA
+
+chamadas "cidades legais" — podem ser em alguma medida comparáveis às
+dos países desenvolvidos13.  Tal situação de irregularidade acaba por "justifi-
+car"  a  não-provisão  de  serviços  públicos,  ou  limitar  sua  possibilidade,  em
+áreas de favelas ou loteamentos clandestinos, já que o Estado precisa seguir os
+muitos  procedimentos  legais  para  adquirir terras ou  construir equipamentos
+públicos em áreas desse tipo. Além do mais,  os gestores públicos freqüente-
+mente evitam fazer investimentos sociais em áreas que possam vir a ser objeto
+de ações de reintegração de posse por parte de agentes privados14.
+
+Embora esteja em curso no Brasil um instigante debate sobre esse tema
+no que diz respeito às políticas urbanística, habitacional e ambiental15, há pou-
+quíssima discussão acerca do impacto das formas de uso do solo para políticas
+sociais como as de  saúde  e  educação.  De qualquer modo,  o que  há de mais
+relevante nessa proposição é a sugestão de que existiriam barreiras institucio-
+nais  à  oferta  de  serviços  sociais  em  áreas  informais,  independentemente  do
+papel dos atores sociais locais, da burocracia ou mesmo dos governantes16.
+
+No caso da política educacional,  o problema do acesso dos segmentos
+mais pobres aos serviços públicos ganha dimensão ainda mais complexa,  já
+que, além dos elementos político-institucionais acima apresentados, também
+as famílias desempenhariam papel crucial nesse processo.  De fato,  uma sig-
+nificativa  produção  científica  —  derivada  de  estudos  do  tipo  cross-section
+entre  países  e  regiões — oferece  evidências  substanciais  de  que  a  escolari-
+dade  da  família  (da  mãe  sobretudo)  e,  subsidiariamente,  a  renda  familiar
+estariam  entre  os principais fatores do desempenho escolar e da  permanên-
+cia  da  criança  na  escola.  Filmer  e  Pritchett,  por  exemplo,  estudaram  essa
+relação para 35 países e concluíram que os fenômenos da baixa escolaridade
+e da pobreza estão intimamente associados em países em desenvolvimento,
+num círculo vicioso de reprodução da pobreza17.  Estudo semelhante para os
+municípios  de  São  Paulo,  produzido  pela  Fundação  Seade,  indicou  que
+baixos desempenhos escolares estão associados a baixos níveis educacionais
+dos  pais,  mas  não  necessariamente  a  um  baixo  nível  de  renda  familiar:
+constatou-se um surpreendente conjunto de municípios (sobretudo no Oeste
+do Estado) com renda média-baixa mas com indicadores educacionais supe-
+riores à média  estadual18.
+
+Desenvolvemos  a  seguir  uma  análise  da  política  educacional  no  con-
+texto  da  Região Metropolitana  de  São  Paulo.  Tentamos  explorar elementos
+empíricos que tragam luzes a esse debate, sem ter a pretensão de proporcio-
+nar uma  resposta  que esgote  o problema.
+
+Desempenho educacional e escolaridade da família
+
+Produzimos para  os principais municípios da Região Metropolitana de
+São Paulo uma análise que associa o desempenho escolar dos alunos de 5a sé-
+rie do período diurno do ensino fundamental das escolas estaduais — refletido
+na nota  obtida  no exame  em Língua  Portuguesa  do  Sistema  de Avaliação  de
+
+134  NOVOS  ESTUDOS  N.°  64
+
+(9) Cf.  Santos, Wanderley Gui-
+lherme  dos.  "A  trágica  condi-
+ção da política social". In:  Polí-
+tica  social  e  combate  à pobre-
+za. Rio de Janeiro: Zahar, 1987,
+p. 37.
+
+(10) Cf. North, Douglass C. Ins-
+titutions, 
+institutional  change
+and 
+economic  performance.
+Nova York: Cambridge Univer-
+sity  Press,  1990;  Structure and
+change 
+in  economic  history.
+Nova York: Norton&Co., 1981.
+Esse  argumento  pode ser tam-
+bém  encontrado  na  discussão
+sobre o microcrédito em países
+em desenvolvimento.  Uma vez
+que os  pequenos negócios são
+ilegais e a propriedade da terra
+é  informal,  as  famílias  não  po-
+deriam  usar  seus  ativos  como
+garantia de empréstimos, redu-
+zindo-se  assim  seu  uso  poten-
+cial  em  novos  investimentos
+(cf.  Debraj,  Ray.  Development
+economics.  New  Jersey:  Prin-
+ceton University Press,  1998).
+
+(11) "Somente mercados fundi-
+ários regularizados possibilitam
+uma provisão habitacional ade-
+quada,  e  manter  esses  merca-
+dos  é  uma  das  tarefas  que  ca-
+bem  ao  setor  público.  Estabe-
+lecer registros e direitos de pro-
+priedade claros para todo o es-
+paço urbano requer o fortaleci-
+mento das instituições existen-
+tes.  Direitos  de  propriedade
+mal-definidos  geram  subutili-
+zação  da  terra  e  desestimulam
+o  redesenvolvimento  de  por-
+ções inteiras de uma cidade. Já
+a  garantia  do direito de propri-
+edade  gera  por  si  considerá-
+veis  incentivos  para  melhorias
+em  habitação  e  infra-estrutura"
+(World  Bank.  Entering  the 21st
+Century:  World  Development
+Report  1999/2000.  Nova  York:
+Oxford University Press,  1999,
+p. 146).
+
+(12)  Por  exemplo,  as  estimati-
+vas  de  população  vivendo  em
+situação  informal  variam  entre
+30%  na  América  Latina  e  80%
+na África  (Cf.  Schteingart,  Mar-
+tha.  Los  produtores  del  espacio
+habitable:  Estado,  empresa  y
+sociedad en la Ciudad de Méxi-
+co. Cidade do México: El Cole-
+gio de México,  1989; Lim, Gill-
+Chin.  "Housing policies for ur-
+ban  poor  in  developing  coun-
+tries".  In:  Stein, Jay M.  Classic
+readings 
+in  urban  planning.
+Nova York: McGraw-Hill, 1995,
+pp.  521-537).
+
+(13) Cf. Gronstein, Marta Dora.
+A  cidade clandestina:  os  ritos e
+os mitos. O papel da irregulari-
+dade  na  estruturação  do  espa-
+ço  urbano  no  município de São
+Paulo—  1900-1987.  São  Pau-
+lo:  tese  de  doutorado,  FAU-
+USP, 1987.
+
+(14) Cf. Maricato,  Ermínia. Me-
+trópole  na periferia  do  capita-
+lismo:  ilegalidade,  desigualda-
+de e violência. São Paulo: Huci-
+tec, 1996.
+
+(15) Cf. Gronstein, op. cit.; Ma-
+ricato,  op.  cit.;  Ancona,  Ana
+Lúcia.  Direito ambiental,  direi-
+to para  quem?  Políticas públi-
+cas  do  meio  ambiente  na  me-
+trópole paulista. São Paulo: tese
+de doutorado, FAU-USP, 2002.
+
+(16) Um aspecto pouco explo-
+rado  empiricamente  pelos  es-
+tudiosos brasileiros é a explica-
+ção  do  nível  de  investimento
+público em áreas pobres a par-
+tir da política do partido gover-
+nante.  Estudo  feito  por Eduar-
+do  Marques  e  Renata  Bichir
+(Clivagens ideológicas e empre-
+sas privadas  nos  investimentos
+públicos  urbanos.  Paper  para
+XXV  Encontro  Anual 
+da
+Anpocs,  Caxambu, outubro de
+2001)  mostra  que  os  investi-
+mentos  em  infra-estrutura  ur-
+bana  nas áreas mais pobres da
+cidade  de São Paulo  no  perío-
+do  1978-98  variaram  enorme-
+mente  conforme  a  clivagem
+ideológica do prefeito,  embora
+esse mesmo fator tenha se mos-
+trado  menos  decisivo  para  a
+explicação das  políticas  de  sa-
+neamento na cidade do Rio de
+Janeiro  para  o  mesmo  período
+(cf. Marques, op.  cit.).
+
+(17)  Filmer,  Deon  e  Pritchett,
+Phillip  L.  "The  effect  of  hou-
+sehold wealth on education at-
+tainment:  evidence  from  35
+countries".  Population  and De-
+velopment Review, vol. 25, nº 1,
+1999, pp. 85-120.
+
+(18)  Fundação  Seade.  Índice
+paulista  de 
+responsabilidade
+social.  São  Paulo:  Seade/As-
+sembléia Legislativa, 2001.
+
+(19) Infelizmente o IBGE ainda
+informa-
+não  disponibilizou 
+ções  do  Censo  2000  sobre  a
+escolaridade da  mãe.
+
+(20) Os resultados para as regi-
+ões  do  Morumbi,  Jardim  Pau-
+lista e Marsilac foram excluídos
+para  melhor  visualização  dos
+resultados. Com eles, o R2 seria
+de 36%. Nos dois primeiros ca-
+sos trata-se de áreas com famí-
+lias  de  altíssima  renda,  cujos
+filhos não freqüentam a  escola
+pública,  e  no  último,  de  uma
+população  muito  pequena.  A
+rigor,  o  ajuste  desse  modelo
+poderia ser melhorado se  utili-
+zássemos  outras  variáveis  in-
+dependentes,  como  renda  fa-
+miliar  ou  metro  quadrado  de
+área  construída  por  habitante
+(cf. Torres,  Haroldo e Oliveira,
+Gustavo  C.  Primary education
+and  residential  segregation  in
+the  Municipality  of  São  Paulo:
+a  study using geographic  infor-
+mation  systems.  Paper  para  o
+seminário "Segregation and the
+city", Cambridge, Lincoln Insti-
+tute  of  Land  Policy,  julho  de
+2001 <www.lincolninst.edu>).
+
+HAROLDO TORRES E SANDRA GOMES
+
+Rendimento Escolar do Estado de São Paulo (Saresp) em  2001,  entre  zero e
+100  —  e  a  escolaridade  média  do  responsável  pelo  domicílio19  no  distrito
+onde a escola está localizada. A associação dos dados do Saresp, referentes às
+notas médias  por escola,  e  do Censo Demográfico  2000,  para a  segunda va-
+riável,  foi processada  pelo  meio  de  um  Sistema  de  Informações  Geográficas
+organizado no âmbito do Centro de Estudos da Metrópole.
+
+O  Gráfico 1 mostra que a associação aqui explorada entre escolaridade
+da família e desempenho escolar apresenta forte correlação (R2 = 46%), o que
+permite,  em  tese,  reproduzir  o  modelo  de  interpretação  sugerido  pela  li-
+teratura  para  o  âmbito  da  Região  Metropolitana  (a  variabilidade  observada
+entre  os  distritos  de  maior escolaridade  pode  ser  atribuída  à  freqüência  de
+escolas  particulares  por  parte  de  crianças  oriundas  de  famílias  de  maior
+renda)20.  Contudo, o analista deve ser cauteloso com esse tipo de resultado:
+além dos clássicos problemas associados à chamada  "falácia ecológica",  em
+que a inferência de relações entre dados individuais não pode ser claramente
+derivada  de  dados  agrupados  por  áreas,  os  dados  produzidos  dessa  forma
+têm pouca utilidade para instruir a ação governamental,  embora certamente
+sirvam para revelar a desigualdade e a heterogeneidade educacionais.
+
+Gráfico 1
+Médias das notas em Língua Portuguesa de alunos da 5a série e da escolaridade do
+responsável pelo domicílio, segundo distritos censitários
+Região Metropolitana de São Paulo
+2001
+
+Anos de estudo do responsável pelo domicílio
+
+Fonte:  Secretaria Estadual  de  Educação.  Saresp  2001;  IBGE.  Censo Demográfico  de  2000.
+
+R2 = 0,4632
+
+NOVEMBRO DE 2002 
+
+135
+
+DESIGUALDADE EDUCACIONAL E SEGREGAÇÃO SOCIAL NA REGIÃO METROPOLITANA
+
+Além de suas limitações metodológicas, análises desse tipo não deixam
+de ser preocupantes sob  outros  aspectos.  Se as desigualdades educacionais
+têm a ver principalmente com as condições familiares dos alunos, que papel
+caberia ao Estado no sentido de tentar reduzir tais desigualdades? As respos-
+tas governamentais  têm  sido  as  mais  diversificadas,  desde  os programas  de
+"bolsa escola" até a espera por transformações educacionais intergeracionais,
+com  o  aumento  do  acesso  à  escola.  Cabe  ressaltar,  porém,  que  a  lógica  da
+presente  análise  enfoca  a  família —  e  não  o  sistema  escolar —  como  locus
+privilegiado  de  enfrentamento  do  problema  educacional.
+
+Para aprofundarmos esse argumento, reproduzimos o mesmo exercício
+com uma escala alterada: em vez de tomarmos dados de desempenho escolar
+e de anos de estudo do  responsável  pelo domicílio  por distritos,  considera-
+mos  os mesmos  dados  por escola  e  pelo setor censitário onde  a  escola  está
+localizada21. Sem muita surpresa, podemos observar, no Gráfico 2, que nessa
+escala de observação a correlação entre essas duas dimensões é muito mais
+tênue  (R2  =  15%).  No  Quadro  1  apresentamos  indicadores  agregados  para
+cada  um  dos  quadrantes  formados  pela  intersecção  das  médias  das  duas
+variáveis consideradas no gráfico.
+
+Gráfico 2
+Médias da nota em Língua Portuguesa de alunos da 5ª série e da escolaridade do
+responsável pelo domicílio, segundo setor censitário onde a escola está localizada
+Região Metropolitana de São Paulo
+2001
+
+(21)  Para  esse  exercício  foram
+consideradas  todas  as  escolas
+estaduais  para  as  quais  existia
+o dado de nota no ensino diur-
+no,  o que  nos deu  um total  de
+1.175  pares  de  escolas/setores
+censitários. A Região Metropo-
+litana  tinha  um total  de  21  mil
+setores censitários no Censo de
+2000.
+
+Anos de estudo do responsável pelo domicílio
+
+Fonte:  Secretaria  Estadual  de Educação.  Saresp  2001;  IBGE.  Censo Demográfico de  2000.
+
+136  NOVOS  ESTUDOS  N.°  64
+
+R2 = 0,1510
+
+HAROLDO TORRES E SANDRA GOMES
+
+Quadro 1
+Indicadores para os quadrantes de desempenho escolar
+e escolaridade do responsável pelo domicílio
+Região Metropolitana de São Paulo
+2001
+
+Indicadores
+
+Quadrante 1
+Escolaridade
+e notas
+abaixo
+da média
+
+Quadrante 2
+Escolaridade
+abaixo e notas
+acima
+da média
+
+Quadrante 3
+Escolaridade
+e notas
+acima
+da média
+
+Quadrante 4
+Escolaridade
+acima e notas
+abaixo
+da média
+
+477
+
+39,7
+
+43%
+
+Total de escolas/setores
+Distribuição dos
+alunos de 5a a 8a série
+Nota média em Língua
+Portuguesa, 5a série diurno 
+Anos médios de estudo do
+responsável pelo domicílio 
+Renda média do
+responsável pelo domicílio1 
+Distribuição na
+população total
+Crianças (7 a 14 anos) na
+população total do quadrante  16%
+Responsáveis pelo
+domicílio não-alfabetizados  9,4%
+
+45%
+
+3,7
+
+5,7
+
+244
+
+19%
+
+49,6
+
+6,0
+
+4,2
+
+22%
+
+15%
+
+8,0%
+
+305
+
+25%
+
+50,3
+
+9,0
+
+10,9
+
+22%
+
+11%
+
+2,4%
+
+147
+
+13%
+
+41,3
+
+8,3
+
+8,3
+
+11%
+
+12%
+
+3,2%
+
+Fonte:  Secretaria Estadual  de  Educação.  Saresp  2001;  IBGE.  Censo  Demográfico de  2000.
+(1) Em salário mínimo de julho de  2000 (R$  151,00).
+
+As escolas do Quadrante  1  são aquelas que simultaneamente apresen-
+tam notas em Português abaixo da  média regional e estão situadas em áreas
+cujos responsáveis pela família têm escolaridade abaixo da média dos setores
+censitários considerados. Estão nesse quadrante a maior parte dos alunos de
+5a a 8a série do ensino fundamental (43%) assim como das crianças entre 7 e
+14 anos de idade (50%) da Região. Como esperado, essas escolas apresentam
+os  resultados  mais  precários  em  todas  as  variáveis  expostas  no  quadro,
+notadamente  constituindo  o  único  quadrante  com  nota  média  inferior a  40.
+Assim,  parecem  existir  escolas  que,  como  proposto  na  literatura,  refletem
+situações de desigualdade educacional explicáveis pela presença de famílias
+pouco educadas.  Mas isso não esgota o universo explicativo.
+
+Observa-se  também  um  número  significativo  de  escolas  que  estão
+acima da média da região em termos de nota em Português (algumas, muito
+acima)  e abaixo da  média  em termos de  escolaridade  média  do responsável
+pelo  domicílio  do  setor censitário  onde  a  escola  está  localizada  (Quadrante
+2). Ainda que a maior parte dessas escolas se concentre ao redor dos valores
+médios,  há  casos dispersos de médias muito altas  (Gráfico 2).  Dessa forma,
+
+NOVEMBRO DE 2002 
+
+137
+
+DESIGUALDADE EDUCACIONAL E SEGREGAÇÃO SOCIAL NA REGIÃO METROPOLITANA
+
+o Quadrante 2 é de grande interesse empírico para as políticas educacionais,
+uma vez que as escolas nele inseridas contrariam a literatura: que fenômenos
+existiriam nessas regiões e escolas que explicariam um melhor desempenho
+dos alunos?
+
+Nos  outros  dois  quadrantes,  que  agrupam  as  famílias  com  maior
+escolaridade,  observa-se uma grande dispersão de  notas médias por escola.
+Os  resultados  do Quadrante  3  representam  os  casos  previstos  na  literatura:
+alta  escolaridade  do  responsável  pelo  domicílio e  notas  médias  maiores.  O
+Quadrante 4,  apesar de  pouco numeroso,  representa  uma  surpresa:  alta  es-
+colaridade dos responsáveis e notas baixas.  No entanto,  esses dados devem
+ser lidos com cuidado:  grande parte da dispersão observada  deve ser credi-
+tada ao fato de que a maioria das famílias de maior renda e escolaridade não
+matricula seus filhos em escolas  públicas.
+
+Em suma, os dados apresentados por escola e setor censitário sugerem
+um  quadro  bastante  complexo,  em  que  a  relação  entre  escolaridade  da
+família  e  desempenho  escolar  dos  filhos  parece  ser  bastante  relevante  em
+alguns casos e em outros não. Isso sugere que outros fatores relacionados ao
+sistema  de  ensino,  bem  como  às  características  mais  gerais  das  áreas  onde
+estão  localizadas  as  escolas,  condicionam  o  processo  educacional.  Infeliz-
+mente, não temos condições neste momento de explorar todas as dimensões
+do problema,  já que  nesta etapa  do projeto ainda  não puderam ser reunidas
+informações quantitativas sobre  infra-estrutura  da  escola,  número de profes-
+sores etc., bem  como  informações  qualitativas  sobre  a  natureza  da  direção,
+atuação das associações de pais e mestres, nível de qualificação dos professo-
+res etc. Ainda assim, parecem existir dimensões espaciais do fenômeno que
+oferecem indicações relevantes para a análise,  tal como discutimos a seguir.
+
+Padrões  espaciais
+
+O  Mapa  1b  (ver  encarte  de  mapas  ao  fim  do  Dossiê)  mostra  a  dis-
+tribuição espacial das escolas agrupadas de acordo com os quadrantes. Como
+esperado,  as  áreas periféricas dos municípios abrangidos  neste  estudo con-
+centram  os  responsáveis  pelo  domicílio  com  escolaridade  abaixo  da  média
+da região (Quadrantes 1 e 4), enquanto as escolas classificadas no Quadrante
+3  (notas  acima  da  média  associadas  a  alta  escolaridade)  estão  distribuídas,
+com poucas exceções, em locais mais próximos ao centro dos municípios.
+
+Apesar das  evidências  já  apontadas  de  que  há  escolas  localizadas  em
+áreas pobres e com desempenho dos alunos acima da média,  o mapa mostra
+claramente  que  existem  áreas  contínuas  em  que  o  desempenho  escolar  é
+baixo. A parte sudoeste do município de São Paulo (especialmente no Jardim
+Angela)  apresenta  uma  grande  concentração  de  escolas  com  notas  baixas
+que "transbordam" essa realidade para os municípios vizinhos de Embu das
+Artes e Taboão  da  Serra.  O  extremo  leste  do  Município também  concentra
+escolas  com  baixo  desempenho  dos  alunos  em  áreas  bastante  contíguas,
+
+138  NOVOS  ESTUDOS  N.°  64
+
+HAROLDO TORRES E SANDRA GOMES
+
+aspecto  que  ainda  se  observa  para  além  das  fronteiras  dos  municípios  de
+Itaquaquecetuba,  Ferraz de Vasconcelos,  Poá e, em certa medida,  o sudeste
+de Guarulhos.  Chama também a atenção o ABC (a sudeste do município de
+São Paulo), que registra, em geral, uma clara divisão espacial centro/periferia
+com relação ao desempenho dos alunos. Os municípios de Mauá e Diadema
+são  os  únicos  que  apresentam  uma  concentração  espacial  de  escolas  de
+baixo desempenho localizadas em áreas de baixa escolaridade dos responsá-
+veis pelo domicílio.
+
+De  forma  geral,  o  Mapa  1b  parece  sugerir  que  escolas  com  baixo
+desempenho escolar são contíguas espacialmente, sugerindo a existência de
+um fenômeno que pode  ir além da performance de  escolas individuais.  Para
+explorar esse fenômeno,  desenvolvemos no Mapa 2b um procedimento que
+assume a nota escolar como se ela fosse a altitude numa cartografia de curvas
+de nível,  de forma a criar uma certa "topografia"22,  as áreas de uma determi-
+nada cor sendo dadas pelos grupamentos de escolas com o mesmo desempe-
+nho  educacional.
+
+A divisão espacial é aí clara.  Dois grupos distintos de áreas com notas
+médias abaixo de 40 se formam:  ao sudoeste (Jardim Ângela,  Capão Redon-
+do, Embu etc.) e a nordeste (Lajeado, Itaim Paulista, Jardim Presidente Dutra
+etc.). Analogamente,  no  centro  de  São  Paulo,  com  extensões  para  o  ABC,
+localiza-se  a  região  com  concentrações  de  escolas  de  melhor desempenho.
+Observa-se  também  a  existência  de  regiões  de  periferia  com  desempenho
+escolar significativo,  indicando que o fenômeno dos agrupamentos de baixo
+desempenho não pode ser explicado apenas em razão das variáveis relativas
+às  condições familiares.
+
+Discussão
+
+A concentração de agrupamentos de escolas com baixíssimo desempe-
+nho em áreas específicas da Metrópole — sobretudo no entorno dos distritos
+paulistanos do Itaim Paulista, a leste, e do Jardim Ângela, a sudoeste — indica
+claramente que,  para além das explicações relacionadas à renda familiar e à
+escolaridade  das  famílias,  há  outras  dimensões  socioespaciais  que  parecem
+condicionar  o  resultado  do  processo  educacional.  Seria  pretensioso,  a  esta
+altura  da  pesquisa,  sugerir  qualquer  padrão  de  explicação  mais  definitivo
+para o fenômeno. Assim,  a discussão que se segue é especulativa e tem por
+objetivo suscitar o debate.
+
+Os  dois  principais  agrupamentos  de  escolas  com  baixo  desempenho
+correspondem a áreas,  além de pobres,  com elevado crescimento demográ-
+fico  e  alta  proporção  de  favelas  e  loteamentos  clandestinos,  bem  como  a
+áreas em que se evidenciam importantes problemas relacionados à degrada-
+ção  das  relações  sociais  e  comunitárias,  expressas  em  elevados  índices  de
+violência  e  de  homicídios23.  Devemos  buscar  fatores  explicativos  que  te-
+nham  relação  com  características  peculiares  do  sistema  educacional  dessas
+
+NOVEMBRO DE 2002 
+
+139
+
+(22)  Cf.  Demers,  Michael  N.
+of  Geographic
+Fundamentals 
+Information 
+Systems.  Nova
+York: John Wiley & Sons, 2000.
+
+(23) Cf.  Koga,  Dirce e  Sposati,
+Aldaíza.  Cartografia  da  exclu-
+são/inclusão  social  das  crian-
+ças e adolescentes  na  cidade de
+São Paulo.  São  Paulo:  Núcleo
+de Seguridade e Assistência So-
+cial da PUC-SP, 1996.
+
+DESIGUALDADE EDUCACIONAL E SEGREGAÇÃO SOCIAL NA REGIÃO METROPOLITANA
+
+áreas  ou  com  aspectos  sociais  particulares  desses  locais,  uma  vez  que
+pobreza  e  crescimento  demográfico  não  podem  explicar  por  si  o  baixo
+desempenho  observado,  pois  há  escolas  localizadas  em  outras  áreas  igual-
+mente  pobres  e  demograficamente  dinâmicas — ao  norte  da  Região  Metro-
+politana e ao sul do ABC,  por exemplo — cujos indicadores de desempenho
+são muito superiores.
+
+Seriam  esses  os  casos  típicos,  discutidos  no  início  do  artigo,  de  áreas
+com rede  de  relações sociais precária (ou  baixo capital social)? Haveria aí o
+efeito combinado de  ilegalidade  da propriedade da  terra? E,  nessa situação,
+os  moradores  dessas  áreas  estariam sendo vítimas  do  preconceito  dos  pro-
+fissionais  do  serviço  público?  Com  relação  a  este  último  ponto,  não há  ne-
+nhuma  razão  a priori  para  imaginar  que  as  delegacias  de  ensino  sejam
+sistematicamente piores nessas  áreas,  induzindo  deterioração  do  desempe-
+nho local. A única hipótese plausível nesse caso seria considerar que, em face
+dos níveis de violência, professores e diretores se sentiriam desestimulados a
+atuar  nesses  locais,  bem  como  teriam  maior  dificuldade  em  lidar  com  os
+alunos.  Segundo  esse  argumento,  situações  de risco  presentes  nessas  áreas
+induziriam respostas particulares dos servidores da área de educação,  acen-
+tuando as condições de  degradação da escola.
+
+Por  outro  lado,  é  plausível  considerar  que  os  elevados  níveis  de
+segregação — na forma de grande concentração local de pobres e desempre-
+gados,  dificuldade  de  acesso  a  serviços,  falta  de  organização  social  e  um
+contexto  de  falta  de  perspectivas — induziriam  o  desenvolvimento  de  uma
+cultura de desrespeito e  desinteresse  pela  escola.  Quando os  alunos e a so-
+ciedade  local  não  investem  na  escola  como  espaço  de  promoção  de  novas
+oportunidades,  torna-se  muito  mais  difícil  elevar  os  padrões  educacionais,
+mesmo contando com funcionários zelosos e dedicados24.
+
+Do  ponto  de  vista  da  política  pública,  porém,  pouco  importa  qual
+desses argumentos é o mais relevante.  Provavelmente trata-se de um círculo
+vicioso pelo qual o risco acentua o medo dos servidores, o que compromete
+seu desempenho,  o que aumenta  o descrédito na  escola,  o que  potencializa
+o  risco.  A  evidência  internacional  sugere  que  existem  importantes  espirais
+sociais  descendentes  derivadas  da  segregação  intra-urbana25.  Tais  áreas
+requerem  uma  atitude  diferente  por  parte  da  sociedade  e  da  mídia,  bem
+como uma notável mobilização do setor público.  Faz-se necessária portanto
+uma  agenda  de  políticas  públicas  especiais  para  áreas  especiais:  os  locais
+altamente segregados. Aí as políticas universais não são suficientes para re-
+verter por si sós essas dinâmicas de  reprodução  da baixa escolaridade e  da
+segregação.  De  fato,  é  improvável  que uma  única  e  isolada  política setorial
+(como  a  educacional  ou  a  de  saúde)  possa  mudar  tal  contexto.  Somente
+ações  coordenadas,  envolvendo  diversas  dimensões  de  política  pública  —
+regularização  fundiária,  cultura,  infra-estrutura  urbana,  segurança,  transpor-
+tes,  lazer,  saúde,  educação —,  serão  capazes  de  desconstruir  esse  eixo  de
+reprodução da  desesperança.
+
+140  NOVOS  ESTUDOS  N.°  64
+
+(24) Não temos elementos sufi-
+cientes  para  discutir  aqui  a  hi-
+pótese da  economia institucio-
+nal  relacionada  à  condição  de
+propriedade da  terra.
+
+(25)  Cf.  Wilson,  William.  The
+truly  disadvantaged:  the  inner
+city,  the  underclass  and  public
+policy.  Chicago:  University  of
+Chicago Press,  1990.
+
+Recebido  para  publicação  em
+25 de setembro de 2002.
+
+Haroldo da  Gama Torres é de-
+mógrafo  e  coordenador da  Di-
+visão  de  Geoprocessamento  e
+Computação  do  Centro  de  Es-
+tudos da Metrópole (CEM). San-
+dra Gomes é mestre em Ciência
+Política e pesquisadora do CEM.
+
+Novos Estudos
+CEBRAP
+N.° 64, novembro 2002
+pp.132-140
+
+
+
+DESIGUALDADE EDUCACIONAL
+E SEGREGACAO SOCIAL NA REGIAO
+METROPOLITANA DE SAO PAULO
+
+Haroldo Torres e Sandra Gomes
+
+RESUMO.
+
+Este artigo tem por objetivo situar o debate sobre a questdo da desigualdade educacional no
+contexto da Regido Metropolitana de Sao Paulo, buscando explorar suas légicas subjacentes.
+Para tanto, recorre-se a informagées sobre desempenho escolar de alunos da 5* série do ensino
+fundamental e nivel de escolaridade da familia, analisadas conforme os padrées que assumem
+nos diversos distritos ou setores censitarios da Regiao. Tais informagées sdo organizadas em um
+Sistema de Informagées Geograficas, que permite identificar padrdes de heterogeneidade do
+desempenho educacional em sua dimensao espacial.
+
+Palavras-chave: desigualdade educacional; politicas publicas; Regido Metropolitana de Sdo
+Paulo.
+
+SUMMARY
+
+The article introduces the debate on educational inequalities in the context of the Sio Paulo
+Metropolitan Area, exploring its underlying logics. It employs information on the performance
+of 5" grade students and the educational level of their families, analyzing patterns of perfor-
+mance in districts and census tracts of the Metropolitan Area. Such information is organized
+within a Geographic Information System, which allows the identification of heterogeneous
+patterns of schooling performance in its spatial dimension.
+
+Keywords: educational inequalities; public policies; Sado Paulo Metropolitan Area.
+
+Para qualquer observador da cena brasileira, ¢ uma obviedade afirmar
+que os pobres tém pior acesso aos servigos publicos. No entanto, isso nao
+pode ser tomado como regra geral: 0 acesso varia de modo significativo entre
+regides e familias com o mesmo nivel de renda — tema que tem sido
+destacado, por exemplo, no ambito do projeto de desenvolvimento humano
+das Nagées Unidas’. A fim de situarmos nossas consideragées em torno do
+objeto central deste artigo — a desigualdade educacional no ambito da
+Regiao Metropolitana de Sao Paulo —, examinemos as principais linhas
+explicativas apresentadas pela literatura acerca da desigualdade na oferta de
+servicos publicos.
+
+Um primeiro argumento baseia-se na idéia de que os segmentos menos
+educados e com uma rede de relagées sociais precaria tem menor capacidade
+de demandar servicos publicos aos governos’. Isso se verificaria sobretudo
+onde o processo de decisdo acerca dos servi¢os a serem oferecidos depende
+
+132. NOVOS ESTUDOS N° 64
+
+(1) Programa das Nagdes Uni-
+das para o Desenvolvimento
+(Pnud). Desenvolvimento hu-
+mano e condigdes de vida: in-
+dicadores brasileiros. Brasilia:
+1998; Relatério do desenvolvi-
+mento humano 2000. Lisboa:
+Trinova, 2000.
+
+(2) Cf Briggs, Xavier S. Ties
+that bind, bridge, and cons-
+train: social capital and segre-
+gation in American Metropolis.
+Paper para 0 seminario "Segre-
+gation and the city", Lincoln
+Institute of Land Policy, Cam-
+bridge, julho de 2001 <www.
+lincolninst.edu>; Burstein, Paul.
+"Social movements and public
+policy". In: Giugni, Marco,
+McAdam, Doug e Tilly Charles
+
+.). How social movement
+- Minneapolis: Universi-
+, 1999: Ja-
+cobi, Pedro. Movimentos soci-
+
+
+
+ais e politicas publicas: deman-
+das por saneamento basico e
+satide — Sio Paulo 1978-84.
+Sio Paulo: Cortez, 1989; Put-
+nam, Robert D. Bowling alone:
+the collapse and revival of Ame-
+rican Community. Nova York:
+Simon & Schuster, 2000.
+
+(3) Cf. Gomes, Sandra e Bitar,
+Sandra. A oferta de ensino in-
+fantil no municipio de Guaru-
+Thos ea discussdo sobre a perife-
+ria da Regiéo Metropolitana de
+Sto Paulo. Paper para o XII
+Encontro Nacional da Abep,
+Ouro Preto, novembro de 2002:
+Torres, Haroldo e Marques,
+Eduardo. "Reflexdes sobre a hi-
+perperiferia: novas e velhas fa-
+ces da pobreza no entorno me-
+tropolitano". Revista Brasileira
+de Estudos Urbanos e Regionais,
+n’ 4, 2001.
+
+(4) Putnam (op. cit.) se refere a
+esse fendmeno como o "lado
+negro" do capital social.
+
+(5) Cf Evans, Peter. Embedded
+autonomy: States & industrial
+transformation. New Jersey:
+Princeton University Press,
+1994: Savich, H. V. Post-indus-
+trial cities: politics and plan-
+ning in New York, Paris and
+London. New Jersey: Princeton
+University Press, 1988.
+
+(6) Essa hipotese parece ser
+mais forte para determinadas
+politicas, como a de saneamen-
+to e infra-estrutura urbana (cf.
+Marques, Eduardo Cesar. Espa-
+¢o e redes sociais: permeabili-
+dade e coesdo nas politicas ur-
+banas do Rio de Janeiro. Rio de
+Janeiro: Revan, 2000). Alguns
+autores argumentam ainda que
+esse viés pode ser observado
+sobretudo em sociedades onde
+persiste "a heranga de uma cul-
+tura institucional produtora de
+desigualdades" (Werna, Ed-
+mund. Combating urban ine-
+qualities: challenges for mana-
+ging cities in the developing
+world. Londres: Edward Elgar,
+2000).
+
+(7) Em face de indicadores de
+desempenho profissional  tais
+como absenteismo em escolas
+de periferia, a Secretaria de Edu-
+cago do Estado de Sao Paulo
+tentou recentemente implantar
+um sistema de pagamento dife-
+renciado para profissionais que
+atuassem naquelas escolas, mas
+tal iniciativa foi combatida pelo
+sindicato da categoria — con-
+forme nos informaram profissi-
+onais da Secretaria —- sob 0
+argumento da isonomia profis-
+sional.
+
+(8) Cf, por exemplo, Madeira,
+Felicia R. "Poverty, School and
+work". In: Brazilian issues on
+education, gender and race.
+Sao Paulo: Ed. Fundagao Carlos
+Chagas, 1996; "Pobreza, escola
+e trabalho: condigées virtuosas,
+conexées viciosas". Sdo Paulo
+em Perspectiva: Fundagio Sea-
+de, vol. 7, n° 1, 1993.
+
+HAROLDO TORRES E SANDRA GOMES
+
+diretamente da demanda da populacao local, seja individualmente, seja por
+meio de movimentos sociais. Tal parece ser 0 caso, por exemplo, da oferta de
+ensino infantil em trés localidades da Regiao Metropolitana de Sao Paulo em
+que desenvolvemos pesquisa (Maua, Guarulhos e Embu), onde a disponibili-
+dade de novas vagas depende em grande medida da demanda direta da popu-
+lagdo, uma vez que a oferta desse servigo nao é imposta pela legislag¢ao, como
+no caso do ensino fundamental. Dessa forma, as areas com maiores concentra-
+goes de pobres e migrantes recentes acabam sendo reconhecidamente aque-
+las onde a oferta do servigo é mais precdria*. Em outras palavras, hipdteses
+baseadas no papel do chamado "capital social" — que considera as dinamicas
+das politicas em razdo da agao de grupos de interesse e/ou de movimentos
+sociais — resultam logicamente num quadro de pior cobertura nas areas que
+concentram segmentos populacionais menos organizados e educados*.
+
+Um segundo argumento importante pode ser desenvolvido com base
+na perspectiva neo-institucional, que ressalta o papel da burocracia nas
+diversas politicas publicas®. De acordo com essa visao, as caracteristicas da
+burocracia em termos de treinamento, insulamento, coesdo, valores etc.
+podem afetar significativamente as politicas publicas no longo prazo. Isso
+porque os gestores que decidem sobre onde e como 0s servi¢os sociais serao
+implementados, egressos da classe média, nio necessariamente compreen-
+dem os cédigos, linguagem, atitudes, valores e necessidades da populagao
+pobre, de modo que moradores de favelas e periferias podem ser objeto de
+preconceito por parte de gestores, que nao os perceberiam como alvo pre-
+ferencial de suas politicas®.
+
+No caso da politica educacional, os professores e diretores de escola,
+que so seus principais agentes locais, muitas vezes evitam trabalhar em locais
+de alta concentragao de pobres’. Referindo-se ao ambito paulista, alguns
+autores destacam o preconceito social e racial de parte desses profissionais
+como uma importante barreira historica para a provisdo de servigos educacio-
+nais em areas pobres*. De fato, a questao do preconceito das burocracias e
+servidores publicos em relagao a pobres e negros nao deve ser menosprezada
+quando se pensa a questao da desigualdade na provisao de servigos sociais,
+haja vista a longa tradigdo de desigualdade e preconceito que perpassa as
+diversas dimensées da vida social do pais’.
+
+Um terceiro argumento segue a tradi¢ao estabelecida pela economia
+institucional, propondo que a estabilidade do sistema judicial e do regime de
+propriedade privada influencia a performance econémica no longo prazo, ou
+seja, sistemas legais organizados propiciariam uma condi¢gao de menos riscos
+econémicos e mais estimulos para investimentos publicos'’. Organizacgdes
+internacionais como o Banco Mundial freqiientemente tém langado mao
+desse argumento ao defender a regularizagao fundiaria como precondi¢gao
+para o desenvolvimento econémico e social'’. Parece inquestionavel porém
+que leis e regulamentos em torno dos multiplos aspectos da vida social nao
+podem ser tomados como dados nos paises em desenvolvimento, em que
+vigoram miultiplas condicées de informalidade”, particularmente no que diz
+respeito ao uso da terra, de modo que somente umas poucas localidades — as
+
+NOVEMBRO DE 2002 133
+
+
+DESIGUALDADE EDUCACIONAL E SEGREGAGAO SOCIAL NA REGIAO METROPOLITANA
+
+chamadas "cidades legais" — podem ser em alguma medida comparaveis as
+dos paises desenvolvidos’*. Tal situago de irregularidade acaba por "justifi-
+car" a nao-provisdo de servigos publicos, ou limitar sua possibilidade, em
+areas de favelas ou loteamentos clandestinos, ja que o Estado precisa seguir os
+muitos procedimentos legais para adquirir terras ou construir equipamentos
+publicos em areas desse tipo. Além do mais, os gestores publicos freqiiente-
+mente evitam fazer investimentos sociais em areas que possam vir a ser objeto
+de agdes de reintegracao de posse por parte de agentes privados"*
+
+Embora esteja em curso no Brasil um instigante debate sobre esse tema
+ha pou-
+quissima discussdo acerca do impacto das formas de uso do solo para politicas
+
+no que diz respeito as politicas urbanistica, habitacional e ambiental’,
+
+sociais como as de satide e educacgdo. De qualquer modo, o que ha de mais
+relevante nessa proposicdo é a sugestao de que existiriam barreiras institucio-
+nais a oferta de servicos sociais em areas informais, independentemente do
+papel dos atores sociais locais, da burocracia ou mesmo dos governantes'®
+No caso da politica educacional, 0 problema do acesso dos segmentos
+mais pobres aos servigos publicos ganha dimensao ainda mais complexa, ja
+que, além dos elementos politico-institucionais acima apresentados, também
+as familias desempenhariam papel crucial nesse processo. De fato, uma sig-
+nificativa produgao cientifica — derivada de estudos do tipo cross-section
+entre paises e regides — oferece evidéncias substanciais de que a escolari-
+dade da familia (da mae sobretudo) e, subsidiariamente, a renda familiar
+estariam entre os principais fatores do desempenho escolar e da permanén-
+cia da crianca na escola. Filmer e Pritchett, por exemplo, estudaram essa
+relacao para 35 paises e concluiram que os fendmenos da baixa escolaridade
+e da pobreza estao intimamente associados em paises em desenvolvimento,
+7. Estudo semelhante para os
+municipios de Sao Paulo, produzido pela Fundacgao Seade, indicou que
+baixos desempenhos escolares estao associados a baixos niveis educacionais
+
+num circulo vicioso de reprodugao da pobreza’
+
+dos pais, mas nao necessariamente a um baixo nivel de renda familiar:
+constatou-se um surpreendente conjunto de municipios (sobretudo no Oeste
+do Estado) com renda média-baixa mas com indicadores educacionais supe-
+riores 4 média estadual’®.
+
+Desenvolvemos a seguir uma analise da politica educacional no con-
+texto da Regido Metropolitana de Sio Paulo. Tentamos explorar elementos
+empiricos que tragam luzes a esse debate, sem ter a pretensdo de proporcio-
+nar uma resposta que esgote o problema.
+
+Desempenho educacional e escolaridade da familia
+
+Produzimos para os principais municipios da Regiao Metropolitana de
+Sao Paulo uma andlise que associa 0 desempenho escolar dos alunos de 5" sé-
+rie do periodo diurno do ensino fundamental das escolas estaduais — refletido
+na nota obtida no exame em Lingua Portuguesa do Sistema de Avaliacao de
+
+134 NOVOS ESTUDOS N° 64
+
+(9) C£ Santos, Wanderley Gui-
+Iherme dos. "A tragica condi-
+gio da politica social". In: Poli-
+tica social e combate a pobre-
+za. Rio de Janeiro: Zahar, 1987,
+p. 37.
+
+(10) Cf North, Douglass C. Ins-
+titutions, institutional change
+and economic performance.
+Nova York: Cambridge Univer-
+sity Press, 1990; Structure and
+change in economic. history.
+Nova York: Norton&Co., 1981.
+Esse argumento pode ser tam-
+bém encontrado na discussio
+sobre 0 microcrédito em paises
+em desenvolvimento. Uma vez
+que os pequenos negocios sio
+ilegais e a propriedade da terra
+é informal, as familias nado po-
+deriam usar seus ativos como
+garantia de empréstimos, redu-
+zindo-se assim seu uso poten-
+cial em novos investimentos
+(cf. Debraj, Ray. Development
+economics. New Jersey: Prin-
+ceton University Press, 1998).
+
+ie 1) "Somente mercados fundi-
+arios regularizados possibilitam
+uma provisao habitacional ade-
+quada, e manter esses merca-
+dos é uma das tarefas que ca-
+bem ao setor publico. Estabe-
+lecer registros e direitos de pro-
+priedade claros para todo 0 es-
+pago urbano requer 0 fortaleci-
+mento das instituigdes existen-
+tes. Direitos de propriedade
+mal-definidos geram subutili-
+zagao da terra e desestimulam
+o redesenvolvimento de por-
+odes inteiras de uma cidade. Ja
+a garantia do direito de propri-
+edade gera por si considera
+veis incentivos para melhorias
+em habitacao e infra-estrutura"
+(World Bank. Entering the 21"
+Century: World Development
+Report 1999/2000. Nova York:
+Oxford University Press, 1999,
+p. 146).
+
+(12) Por exemplo, as estimati-
+vas de populagado vivendo em
+situacdo informal variam entre
+30% na América Latina e 80%
+na Africa (Cf. Schteingart, Mar-
+tha. Los produtores del espacio
+habitable: Estado, empresa y
+sociedad en la Ciudad de Me:
+co. Cidade do México: El Col
+gio de México, 1989; Lim, Gill-
+Chin. "Housing policies for ur-
+ban poor in developing coun-
+tries". In: Stein, Jay M. Classic
+readings in urban planning.
+Nova York: McGraw-Hill, 1995,
+pp. 521-537).
+
+(13) Cf. Gronstein, Marta Dora.
+A cidade clandestina: os ritos e
+os mitos. O papel da irregulari-
+dade na esiruturagdo do espa-
+¢o urbano no municipio de Séo
+Paulo— 1900-1987. Sao Pau-
+lo: tese de doutorado, FAU-
+USP, 1987.
+
+(14) Cf Maricato, Erminia, Me-
+irépole na periferia do capita-
+lismo: ilegalidade, desigualda-
+de e violéncia. Sao Paulo: Huci-
+tec, 1996.
+
+
+(15) Cf Gronstein, op. cit; Ma-
+ricato, op. cit.; Ancona, Ana
+Lucia. Direito ambiental, direi-
+to para quem? Politicas publi-
+cas do meio ambiente na me-
+trépole paulista. Sao Paulo: tese
+de doutorado, FAU-USP, 2002.
+
+(16) Um aspecto pouco explo-
+rado empiricamente pelos es-
+tudiosos brasileiros é a explica-
+cao do nivel de investimento
+piiblico em areas pobres a par-
+tir da politica do partido gover-
+nante. Estudo feito por Eduar-
+do Marques e Renata Bichir
+(Clivagens ideol6gicas e empre-
+sas privadas nos investimentos
+piblicos urbanos. Paper para
+XXV_ Encontro Anual da
+Anpocs, Caxambu, outubro de
+2001) mostra que os investi-
+mentos em infra-estrutura ur-
+bana nas areas mais pobres da
+cidade de Sao Paulo no perio-
+do 1978-98 variaram enorme-
+mente conforme a clivagem
+ideolégica do prefeito, embora
+esse mesmo fator tenha se mos-
+trado menos decisivo para a
+explicagao das politicas de sa-
+neamento na cidade do Rio de
+Janeiro para 0 mesmo periodo
+(cf. Marques, op. cit.).
+
+(17) Filmer, Deon e Pritchett,
+Phillip L. "The effect of hou-
+sehold wealth on education at-
+tainment: evidence from 35
+countries". Population and De-
+velopment Review, vol. 25, n° 1,
+1999, pp. 85-120.
+
+(18) Fundacao Seade. Indice
+paulista de responsabilidade
+social. Sio Paulo: Seade/As-
+sembléia Legislativa, 2001.
+
+(19) Infelizmente o IBGE ainda
+nao disponibilizou _informa-
+gdes do Censo 2000 sobre a
+escolaridade da mae.
+
+(20) Os resultados para as regi-
+des do Morumbi, Jardim Pau-
+lista e Marsilac foram excluidos
+para melhor visualizagao dos
+resultados. Com eles, o R? seria
+de 36%. Nos dois primeiros ca-
+sos trata-se de areas com fami-
+lias de altissima renda, cujos
+filhos nao freqiientam a escola
+publica, e no ultimo, de uma
+populagéo muito pequena. A
+rigor, 0 ajuste desse modelo
+poderia ser melhorado se utili-
+zassemos outras varidveis in-
+dependentes, como renda fa-
+miliar ou metro quadrado de
+area construida por habitante
+(cf. Torres, Haroldo e Oliveira,
+Gustavo C. Primary education
+and residential segregation in
+the Municipality of Séo Paulo:
+a study using geographic infor-
+mation systems. Paper para o
+seminario "Segregation and the
+city", Cambridge, Lincoln Insti-
+tute of Land Policy, julho de
+2001 <www.lincolninst.edu>).
+
+HAROLDO TORRES E SANDRA GOMES
+
+Rendimento Escolar do Estado de Sao Paulo (Saresp) em 2001, entre zero e
+100 — e a escolaridade média do responsavel pelo domicilio’’ no distrito
+onde a escola esta localizada. A associacgao dos dados do Saresp, referentes as
+notas médias por escola, e do Censo Demografico 2000, para a segunda va-
+riavel, foi processada pelo meio de um Sistema de Informacgdes Geograficas
+organizado no ambito do Centro de Estudos da Metropole.
+
+O Grafico I mostra que a associagao aqui explorada entre escolaridade
+da familia e desempenho escolar apresenta forte correlagao (R? = 46%), o que
+permite, em tese, reproduzir o modelo de interpretagao sugerido pela li-
+teratura para o 4mbito da Regiao Metropolitana (a variabilidade observada
+entre os distritos de maior escolaridade pode ser atribuida a freqiiéncia de
+escolas particulares por parte de criangas oriundas de familias de maior
+renda)*". Contudo, 0 analista deve ser cauteloso com esse tipo de resultado:
+além dos classicos problemas associados 4 chamada "falacia ecologica", em
+que a inferéncia de relagées entre dados individuais nao pode ser claramente
+derivada de dados agrupados por areas, os dados produzidos dessa forma
+tém pouca utilidade para instruir a agéo governamental, embora certamente
+sirvam para revelar a desigualdade e a heterogeneidade educacionais.
+
+Grafico 1
+Médias das notas em Lingua Portuguesa de alunos da 5" série e da escolaridade do
+responsavel pelo domicilio, segundo distritos censitarios
+Regiao Metropolitana de Sao Paulo
+2001
+
+Nota média em Portugués
+
+R?=0,4632
+4 is} 8 10 12 14
+Anos de estudo do responsavel pelo domicilio
+
+Fonte: Secretaria Estadual de Educagao. Saresp 2001; IBGE. Censo Demografico de 2000.
+
+NOVEMBRO DE 2002 135
+
+
+DESIGUALDADE EDUCACIONAL E SEGREGAGAO SOCIAL NA REGIAO METROPOLITANA
+
+Além de suas limitagdes metodolégicas, analises desse tipo nao deixam
+de ser preocupantes sob outros aspectos. Se as desigualdades educacionais
+tém a ver principalmente com as condic¢ées familiares dos alunos, que papel
+caberia ao Estado no sentido de tentar reduzir tais desigualdades? As respos-
+tas governamentais tém sido as mais diversificadas, desde os programas de
+"bolsa escola" até a espera por transformagoées educacionais intergeracionais,
+com o aumento do acesso a escola. Cabe ressaltar, porém, que a logica da
+presente analise enfoca a familia — e nao o sistema escolar — como Jocus
+privilegiado de enfrentamento do problema educacional.
+
+Para aprofundarmos esse argumento, reproduzimos 0 mesmo exercicio
+com uma escala alterada: em vez de tomarmos dados de desempenho escolar
+e de anos de estudo do responsavel pelo domicilio por distritos, considera-
+mos os mesmos dados por escola e pelo setor censitario onde a escola esta
+localizada’'. Sem muita surpresa, podemos observar, no Grdfico 2, que nessa
+escala de observacao a correlagéo entre essas duas dimens6es ¢ muito mais
+ténue (R’ = 15%). No Quadro 1 apresentamos indicadores agregados para
+cada um dos quadrantes formados pela intersecgdéo das médias das duas
+variaveis consideradas no grafico.
+
+Grafico 2
+Médias da nota em Lingua Portuguesa de alunos da 5* série e da escolaridade do
+responsavel pelo domicilio, segundo setor censitario onde a escola esta localizada
+Regiao Metropolitana de Sao Paulo
+2001
+
+Nota média em Portugués
+
+2 3 4 5 6 7 8 9 10 11 #12 13 414 #15
+
+Anos de estudo do responsavel pelo domicilio
+
+Fonte: Secretaria Estadual de Educagao. Saresp 2001; IBGE. Censo Demografico de 2000.
+
+136 NOVOS ESTUDOS N° 64
+
+(21) Para esse exercicio foram
+consideradas todas as escolas
+estaduais para as quais existia
+o dado de nota no ensino diur-
+no, 0 que nos deu um total de
+1.175 pares de escolas/setores
+censitarios. A Regidio Metropo-
+litana tinha um total de 21 mil
+setores censitarios no Censo de
+2000.
+
+R?=0,1510
+
+
+HAROLDO TORRES E SANDRA GOMES
+
+Quadro 1
+Indicadores para os quadrantes de desempenho escolar
+e escolaridade do responsavel pelo domicilio
+Regiao Metropolitana de Sao Paulo
+2001
+
+Indicadores Quadrante 1 Quadrante 2 Quadrante 3 Quadrante 4
+
+Escolaridade Escolaridade Escolaridade Escolaridade
+enotas abaixoenotas enotas  acima e notas
+abaixo acima acima abaixo
+
+da média da média da média da média
+
+Total de escolas/setores 477 244 305 147
+Distribuicao dos
+
+alunos de 5° a 8" série B% 19% 25% 13%
+Nota média em Lingua
+
+Portuguesa, 5° série diurno 39,7 49,6 50,3 413
+Anos médios de estudo do
+
+responsavel pelo domicilio 5,7 6,0 9,0 83
+Renda média do
+
+responsavel pelo domicilio! 3,7 42 10,9 8,3
+Distribuicéo na
+
+populagao total 45% 22% 22% 11%
+Criangas (7 a 14 anos) na
+
+populagao total do quadrante 16% 15% 11% 12%
+Responsaveis pelo
+
+domicilio nao-alfabetizados 94% 8.0% 24% 3.2%
+
+Fonte: Secretaria Estadual de Educagao. Saresp 2001; IBGE. Censo Demografico de 2000.
+(1) Em salario minimo de julho de 2000 (R$ 151,00).
+
+As escolas do Quadrante | sao aquelas que simultaneamente apresen-
+tam notas em Portugués abaixo da média regional e estao situadas em areas
+cujos responsaveis pela familia tem escolaridade abaixo da média dos setores
+censitarios considerados. Estaéo nesse quadrante a maior parte dos alunos de
+5" a 8" série do ensino fundamental (43%) assim como das criangas entre 7 e
+14 anos de idade (50%) da Regiao. Como esperado, essas escolas apresentam
+os resultados mais precarios em todas as variaveis expostas no quadro,
+notadamente constituindo o unico quadrante com nota média inferior a 40.
+Assim, parecem existir escolas que, como proposto na literatura, refletem
+situacgdes de desigualdade educacional explicaveis pela presenga de familias
+pouco educadas. Mas isso nao esgota o universo explicativo.
+
+Observa-se também um numero significativo de escolas que estao
+acima da média da regiao em termos de nota em Portugués (algumas, muito
+acima) e abaixo da média em termos de escolaridade média do responsavel
+pelo domicilio do setor censitario onde a escola esta localizada (Quadrante
+2). Ainda que a maior parte dessas escolas se concentre ao redor dos valores
+médios, ha casos dispersos de médias muito altas (Grafico 2). Dessa forma,
+
+NOVEMBRO DE 2002 137
+
+
+DESIGUALDADE EDUCACIONAL E SEGREGAGAO SOCIAL NA REGIAO METROPOLITANA
+
+o Quadrante 2 é de grande interesse empirico para as politicas educacionais,
+uma vez que as escolas nele inseridas contrariam a literatura: que fendmenos
+existiriam nessas regides e escolas que explicariam um melhor desempenho
+dos alunos?
+
+Nos outros dois quadrantes, que agrupam as familias com maior
+escolaridade, observa-se uma grande dispersdo de notas médias por escola.
+Os resultados do Quadrante 3 representam os casos previstos na literatura:
+alta escolaridade do responsavel pelo domicilio e notas médias maiores. O
+Quadrante 4, apesar de pouco numeroso, representa uma surpresa: alta es-
+colaridade dos responsaveis e notas baixas. No entanto, esses dados devem
+ser lidos com cuidado: grande parte da dispersdo observada deve ser credi-
+tada ao fato de que a maioria das familias de maior renda e escolaridade nao
+matricula seus filhos em escolas publicas.
+
+Em suma, os dados apresentados por escola e setor censitario sugerem
+um quadro bastante complexo, em que a relacdo entre escolaridade da
+familia e desempenho escolar dos filhos parece ser bastante relevante em
+alguns casos e em outros nao. Isso sugere que outros fatores relacionados ao
+sistema de ensino, bem como 4s caracteristicas mais gerais das areas onde
+estéo localizadas as escolas, condicionam o processo educacional. Infeliz-
+mente, nao temos condi¢des neste momento de explorar todas as dimensdes
+do problema, ja que nesta etapa do projeto ainda nao puderam ser reunidas
+informag6es quantitativas sobre infra-estrutura da escola, numero de profes-
+sores etc., bem como informacées qualitativas sobre a natureza da diregao,
+atuacao das associagoes de pais e mestres, nivel de qualificagao dos professo-
+res etc. Ainda assim, parecem existir dimens6es espaciais do fendmeno que
+oferecem indicagées relevantes para a analise, tal como discutimos a seguir.
+
+Padroes espaciais
+
+O Mapa 1b (ver encarte de mapas ao fim do Dossié) mostra a dis-
+tribuicdo espacial das escolas agrupadas de acordo com os quadrantes. Como
+esperado, as areas periféricas dos municipios abrangidos neste estudo con-
+centram os responsaveis pelo domicilio com escolaridade abaixo da média
+da regido (Quadrantes | e 4), enquanto as escolas classificadas no Quadrante
+3 (notas acima da média associadas a alta escolaridade) estao distribuidas,
+com poucas exce¢gées, em locais mais proximos ao centro dos municipios.
+
+Apesar das evidéncias ja apontadas de que ha escolas localizadas em
+areas pobres e com desempenho dos alunos acima da média, 0 mapa mostra
+claramente que existem areas continuas em que o desempenho escolar é
+baixo. A parte sudoeste do municipio de Sao Paulo (especialmente no Jardim
+Angela) apresenta uma grande concentragéo de escolas com notas baixas
+que "transbordam" essa realidade para os municipios vizinhos de Embu das
+Artes e Tabodo da Serra. O extremo leste do Municipio também concentra
+escolas com baixo desempenho dos alunos em areas bastante contiguas,
+
+138. NOVOS ESTUDOS N° 64
+
+
+(22) Ci Demers, Michael N.
+Fundamentals of Geographic
+Information _ Systems. Nova
+York: John Wiley & Sons, 2000.
+
+(23) Cf. Koga, Dirce e Sposati,
+Aldaiza. Cartografia da exclu-
+sdo/inclusdo social das crian-
+¢as e adolescentes na cidade de
+Sao Paulo. Sao Paulo: Nucleo
+de Seguridade e Assisténcia So-
+cial da PUC-SP, 1996.
+
+HAROLDO TORRES E SANDRA GOMES
+
+aspecto que ainda se observa para além das fronteiras dos municipios de
+Itaquaquecetuba, Ferraz de Vasconcelos, Poa e, em certa medida, o sudeste
+de Guarulhos. Chama também a atengdo o ABC (a sudeste do municipio de
+Sao Paulo), que registra, em geral, uma clara divisdo espacial centro/periferia
+com relacao ao desempenho dos alunos. Os municipios de Maua e Diadema
+s4o os unicos que apresentam uma concentracao espacial de escolas de
+baixo desempenho localizadas em areas de baixa escolaridade dos responsa-
+veis pelo domicilio.
+
+De forma geral, o Mapa 1b parece sugerir que escolas com baixo
+desempenho escolar sao contiguas espacialmente, sugerindo a existéncia de
+um fendmeno que pode ir além da performance de escolas individuais. Para
+
+explorar esse fendmeno, desenvolvemos no Mapa 2b um procedimento que
+assume a nota escolar como se ela fosse a altitude numa cartografia de curvas
+de nivel, de forma a criar uma certa "topografia"”’, as areas de uma determi-
+nada cor sendo dadas pelos grupamentos de escolas com 0 mesmo desempe-
+nho educacional.
+
+A divisao espacial ¢ ai clara. Dois grupos distintos de areas com notas
+médias abaixo de 40 se formam: ao sudoeste (Jardim Angela, Capo Redon-
+do, Embu etc.) e a nordeste (Lajeado, Itaim Paulista, Jardim Presidente Dutra
+etc.). Analogamente, no centro de Sao Paulo, com extensdes para o ABC,
+localiza-se a regiao com concentra¢gées de escolas de melhor desempenho.
+Observa-se também a existéncia de regides de periferia com desempenho
+escolar significativo, indicando que o fendmeno dos agrupamentos de baixo
+desempenho nao pode ser explicado apenas em razao das variaveis relativas
+as condi¢ées familiares.
+
+Discussao
+
+A concentracao de agrupamentos de escolas com baixissimo desempe-
+nho em areas especificas da Metropole — sobretudo no entorno dos distritos
+paulistanos do Itaim Paulista, a leste, e do Jardim Angela, a sudoeste — indica
+claramente que, para além das explicagées relacionadas a renda familiar e a
+escolaridade das familias, ha outras dimensGes socioespaciais que parecem
+condicionar o resultado do processo educacional. Seria pretensioso, a esta
+altura da pesquisa, sugerir qualquer padrao de explicagéo mais definitivo
+para o fenémeno. Assim, a discussdo que se segue é especulativa e tem por
+objetivo suscitar o debate.
+
+Os dois principais agrupamentos de escolas com baixo desempenho
+correspondem a areas, além de pobres, com elevado crescimento demogra-
+fico e alta proporg¢ao de favelas e loteamentos clandestinos, bem como a
+areas em que se evidenciam importantes problemas relacionados a degrada-
+cao das relagdes sociais e comunitarias, expressas em elevados indices de
+violéncia e de homicidios**. Devemos buscar fatores explicativos que te-
+nham relagao com caracteristicas peculiares do sistema educacional dessas
+
+NOVEMBRO DE 2002 139
+
+
+DESIGUALDADE EDUCACIONAL E SEGREGAGAO SOCIAL NA REGIAO METROPOLITANA
+
+areas ou com aspectos sociais particulares desses locais, uma vez que
+pobreza e crescimento demografico nao podem explicar por si 0 baixo
+desempenho observado, pois ha escolas localizadas em outras areas igual-
+mente pobres e demograficamente dinamicas — ao norte da Regiao Metro-
+politana e ao sul do ABC, por exemplo — cujos indicadores de desempenho
+sao muito superiores.
+
+Seriam esses os casos tipicos, discutidos no inicio do artigo, de areas
+com rede de relagées sociais precaria (ou baixo capital social)? Haveria ai o
+efeito combinado de ilegalidade da propriedade da terra? E, nessa situagao,
+os moradores dessas areas estariam sendo vitimas do preconceito dos pro-
+fissionais do servi¢o publico? Com relac¢ao a este ultimo ponto, nao ha ne-
+nhuma razdo a priori para imaginar que as delegacias de ensino sejam
+sistematicamente piores nessas areas, induzindo deterioragao do desempe-
+nho local. A unica hipotese plausivel nesse caso seria considerar que, em face
+dos niveis de violéncia, professores e diretores se sentiriam desestimulados a
+atuar nesses locais, bem como teriam maior dificuldade em lidar com os
+alunos. Segundo esse argumento, situacdes de risco presentes nessas areas
+induziriam respostas particulares dos servidores da area de educagao, acen-
+tuando as condicgées de degradagao da escola.
+
+Por outro lado, ¢ plausivel considerar que os elevados niveis de
+segregacgao — na forma de grande concentragao local de pobres e desempre-
+gados, dificuldade de acesso a servigos, falta de organizagao social e um
+contexto de falta de perspectivas — induziriam o desenvolvimento de uma
+cultura de desrespeito e desinteresse pela escola. Quando os alunos e a so-
+ciedade local nao investem na escola como espago de promocao de novas
+oportunidades, torna-se muito mais dificil elevar os padrées educacionais,
+mesmo contando com funcionarios zelosos e dedicados™.
+
+Do ponto de vista da politica publica, porém, pouco importa qual
+desses argumentos é o mais relevante. Provavelmente trata-se de um circulo
+vicioso pelo qual o risco acentua o medo dos servidores, 0 que compromete
+seu desempenho, o que aumenta o descrédito na escola, 0 que potencializa
+o risco. A evidéncia internacional sugere que existem importantes espirais
+sociais descendentes derivadas da segregacao intra-urbana*’. Tais areas
+requerem uma atitude diferente por parte da sociedade e da midia, bem
+como uma notavel mobilizacao do setor publico. Faz-se necessaria portanto
+uma agenda de politicas publicas especiais para areas especiais: os locais
+altamente segregados. Ai as politicas universais nao sao suficientes para re-
+verter por si sos essas dinamicas de reproducao da baixa escolaridade e da
+segregacao. De fato, ¢ improvavel que uma unica e isolada politica setorial
+(como a educacional ou a de satide) possa mudar tal contexto. Somente
+acdes coordenadas, envolvendo diversas dimensées de politica publica —
+regularizacao fundiaria, cultura, infra-estrutura urbana, seguranga, transpor-
+tes, lazer, saide, educag4o —, sero capazes de desconstruir esse eixo de
+reprodugao da desesperanga.
+
+140 NOVOS ESTUDOS N° 64
+
+(24) Nao temos elementos sufi-
+cientes para discutir aqui a hi-
+potese da economia institucio-
+nal relacionada & condigaio de
+propriedade da terra.
+
+(25) C£ Wilson, William. The
+truly disadvantaged: the inner
+city, the underclass and public
+policy. Chicago: University of
+Chicago Press, 1990.
+
+Recebido para publicagio em
+25 de setembro de 2002.
+
+Haroldo da Gama Torres é de-
+mégrafo e coordenador da Di-
+visio de Geoprocessamento e
+Computagao do Centro de Es-
+tudos da Metrépole (CEM). San-
+dra Gomes é mestre em Ciéncia
+Politica e pesquisadora do CEM.
+
+Novos Estudos
+CEBRAP
+N.° 64, novembro 2002
+pp.132-140
