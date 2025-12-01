@@ -2,7 +2,7 @@ import pandas as pd
 import optparse
 import os
 
-## Confg dos distritos
+# Configuração dos distritos
 DISTRITOS_IGREJA = ['BELA VISTA', 'BOM RETIRO', 'CAMBUCI', 'CONSOLACAO', 'LIBERDADE', 'REPUBLICA', 'SANTA CECILIA', 'SE']
 
 MAPEAMENTO_DISTRITOS = {
@@ -51,7 +51,7 @@ def carregar_csv(caminho):
         print(f"Erro ao carregar {os.path.basename(caminho)}: {e}")
         return None
 
-def filtrar_distritos(df, coluna_distrito=None):
+def filtrar_distritos(df, coluna_distrito=None, filtrar_apenas_igreja=False):
     if df is None or len(df) == 0:
         return df
     
@@ -63,11 +63,18 @@ def filtrar_distritos(df, coluna_distrito=None):
     
     df_filtrado = df.copy()
     df_filtrado['Distrito'] = df_filtrado[coluna_distrito].apply(normalizar_distrito)
-    df_filtrado = df_filtrado[df_filtrado['Distrito'].isin(DISTRITOS_IGREJA)]
+    
+    # Remove distritos inválidos 
+    df_filtrado = df_filtrado[df_filtrado['Distrito'].notna()]
+    df_filtrado = df_filtrado[df_filtrado['Distrito'] != '']
+    
+    # Se filtrar_apenas_igreja=True, filtra pelos distritos da igreja
+    if filtrar_apenas_igreja:
+        df_filtrado = df_filtrado[df_filtrado['Distrito'].isin(DISTRITOS_IGREJA)]
     
     return df_filtrado
 
-# Beneficios
+# Benefícios
 def consolidar_bpc():
     print("\nCarregando BPC...")
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -78,7 +85,10 @@ def consolidar_bpc():
     if df is None:
         return None
     
-    df = filtrar_distritos(df, 'Distrito')
+    # ALTERAÇÃO IMPORTANTE:
+    # Para uma melhor analise, estou fazendo uma varivel para caso seja necessario
+    # pegar apenas os distritos da igreja ou todos os distritos
+    df = filtrar_distritos(df, 'Distrito', filtrar_apenas_igreja=False)
     if len(df) == 0:
         return None
     
@@ -103,7 +113,8 @@ def consolidar_bolsa_familia():
     if df is None:
         return None
     
-    df = filtrar_distritos(df, 'Distrito')
+    # Filtrando todos os distritos
+    df = filtrar_distritos(df, 'Distrito', filtrar_apenas_igreja=False)
     if len(df) == 0:
         return None
     
@@ -128,7 +139,8 @@ def consolidar_cadunico():
     if df is None:
         return None
     
-    df = filtrar_distritos(df, 'Distrito')
+    # Filtrando todos os distritos
+    df = filtrar_distritos(df, 'Distrito', filtrar_apenas_igreja=False)
     if len(df) == 0:
         return None
     
@@ -179,7 +191,7 @@ def consolidar_valores_alimentos():
     return df
 
 def consolidar_beneficios():
-    print("Consolidando os benefícios")
+    print("Consolidando os beneficios")
     print("="*70)
     
     dfs = []
@@ -196,13 +208,13 @@ def consolidar_beneficios():
     
     print(f"\nTotal: {len(df_final)} registros, {df_final['Quantidade_Beneficiados'].sum()} beneficiados")
     print(f"Programas: {df_final['Programa'].unique()}")
-    print(f"Distritos: {df_final['Distrito'].unique()}")
+    print(f"Distritos únicos: {df_final['Distrito'].nunique()}")
     
     return df_final
 
 # Indicadores
 def consolidar_mapa_desigualdade():
-    print("Consolidando o mapa da desigualdade")
+    print("\nConsolidando o mapa da desigualdade")
     print("="*70)
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -213,7 +225,8 @@ def consolidar_mapa_desigualdade():
     if df is None:
         return None
     
-    df = filtrar_distritos(df)
+    # Filtrando todos os distritos
+    df = filtrar_distritos(df, filtrar_apenas_igreja=False)
     if len(df) == 0:
         return None
     
@@ -224,7 +237,7 @@ def consolidar_mapa_desigualdade():
     return df
 
 def consolidar_observasampa():
-    print("Consolidando os dados do ObservaSampa")
+    print("\nConsolidando os dados do ObservaSampa")
     print("="*70)
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -243,10 +256,12 @@ def consolidar_observasampa():
         df = carregar_csv(os.path.join(tratados_dir, arquivo))
         
         if df is not None:
-            df_filtrado = filtrar_distritos(df)
+            # Filtrando todos os distritos
+            df_filtrado = filtrar_distritos(df, filtrar_apenas_igreja=False)
             if len(df_filtrado) > 0:
                 dfs.append(df_filtrado)
-                print(f"{arquivo}: {len(df_filtrado)} registros filtrados")
+                print(f"{arquivo}: {len(df_filtrado)} registros")
+                print(f"Distritos únicos: {df_filtrado['Distrito'].nunique()}")
     
     if not dfs:
         print("Nenhum dado do ObservaSampa carregado")
@@ -258,13 +273,13 @@ def consolidar_observasampa():
     if 'Nome' in df_final.columns:
         print(f"Indicadores: {df_final['Nome'].nunique()}")
     if 'Distrito' in df_final.columns:
-        print(f"Distritos: {df_final['Distrito'].unique()}")
+        print(f"Distritos únicos: {df_final['Distrito'].nunique()}")
     
     return df_final
 
 # Salvando os dados
 def salvar_consolidados(df_beneficios, df_mapa, df_observa, df_alimentos):
-    print("Salvando os dads")
+    print("\nSalvando os dados consolidados")
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(script_dir)
@@ -274,17 +289,17 @@ def salvar_consolidados(df_beneficios, df_mapa, df_observa, df_alimentos):
     if df_beneficios is not None and len(df_beneficios) > 0:
         caminho = os.path.join(output_dir, 'tabelao_beneficios.csv')
         df_beneficios.to_csv(caminho, index=False, encoding='utf-8-sig')
-        print(f"Salvo: tabelao_beneficios.csv ({len(df_beneficios)} registros)")
+        print(f"Salvo: tabelao_beneficios.csv ({len(df_beneficios)} registros, {df_beneficios['Distrito'].nunique()} distritos)")
     
     if df_mapa is not None and len(df_mapa) > 0:
         caminho = os.path.join(output_dir, 'tabelao_indicadores_mapa.csv')
         df_mapa.to_csv(caminho, index=False, encoding='utf-8-sig')
-        print(f"Salvo: tabelao_indicadores_mapa.csv ({len(df_mapa)} registros)")
+        print(f"Salvo: tabelao_indicadores_mapa.csv ({len(df_mapa)} registros, {df_mapa['Distrito'].nunique()} distritos)")
     
     if df_observa is not None and len(df_observa) > 0:
         caminho = os.path.join(output_dir, 'tabelao_indicadores_observa.csv')
         df_observa.to_csv(caminho, index=False, encoding='utf-8-sig')
-        print(f"Salvo: tabelao_indicadores_observa.csv ({len(df_observa)} registros)")
+        print(f"Salvo: tabelao_indicadores_observa.csv ({len(df_observa)} registros, {df_observa['Distrito'].nunique()} distritos)")
     
     if df_alimentos is not None and len(df_alimentos) > 0:
         caminho = os.path.join(output_dir, 'tabelao_valores_alimentos.csv')
